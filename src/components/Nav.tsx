@@ -2,10 +2,12 @@ import { Link, useMatch, useLocation } from "react-router-dom";
 import { motion, useScroll, useAnimation } from "framer-motion";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import colors from "../colors";
 
 const NavWrapper = styled(motion.nav)<{ ychange: number }>`
+  z-index: 99;
   width: 100%;
-  height: 60px;
+  height: 80px;
   top: 0;
   background-color: white;
   position: sticky;
@@ -43,25 +45,25 @@ interface NavTextProps {
 const NavText = styled.span<NavTextProps>`
   color: ${(props) =>
     props.location === "/" && props.homeMatch
-      ? "#ff2d78"
+      ? colors.mainColor
       : props.location === "/service" && props.serviceMatch
-      ? "#ff2d78"
+      ? colors.mainColor
       : props.location === "/news" && props.newsMatch
-      ? "#ff2d78"
+      ? colors.mainColor
       : props.location === "/partner" && props.partnerMatch
-      ? "#ff2d78"
+      ? colors.mainColor
       : null};
   font-size: 20px;
   font-weight: ${(props) =>
     props.location === "/" && props.homeMatch
-      ? "400"
+      ? "500"
       : props.location === "/service" && props.serviceMatch
-      ? "400"
+      ? "500"
       : props.location === "/news" && props.newsMatch
-      ? "400"
+      ? "500"
       : props.location === "/partner" && props.partnerMatch
-      ? "400"
-      : "300"};
+      ? "500"
+      : "400"};
 `;
 
 const NavBottom = styled(motion.div)`
@@ -83,8 +85,10 @@ function Nav() {
   const navAnimation = useAnimation();
   useEffect(() => {
     scrollY.onChange(() => {
+      console.log(scrollY.get());
+
       setYchange(scrollY.get());
-      if (scrollY.get() > 10 && scrollY.get() < 100) {
+      if (scrollY.get() > 0 && scrollY.get() < 500) {
         navAnimation.start({
           opacity: 0,
         });
