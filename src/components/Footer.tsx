@@ -24,11 +24,11 @@ function Footer() {
         청춘온
       </FooterText>
       <FooterText>대표: 신태건</FooterText>
-      <FooterText>경기도 성남시 위례순환로 53, 2-1311</FooterText>
+      <FooterText>경기도 성남시 위례순환로 53 13층</FooterText>
       <FooterText>문의 메일: help@chungchunon.com</FooterText>
       <FooterText>문의 번호: 031-756-1214</FooterText>
       <FooterText>사업자 등록번호: 628-36-01150</FooterText>
-      <FooterText style={{ fontWeight: 400 }}>
+      <FooterText style={{ fontWeight: 400, marginTop: 20 }}>
         Copyright © 2022 청춘온 All rights reserved.
       </FooterText>
     </FooterWrapper>

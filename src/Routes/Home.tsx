@@ -1,9 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlay, faApple } from "@fortawesome/free-brands-svg-icons";
 import colors from "../colors";
-import { url } from "inspector";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -150,15 +148,6 @@ const SecondRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
-
-const HSecondHeaderLight = styled.span`
-  color: ${colors.lightMain};
-  font-size: 30px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
 `;
 
 function Home() {
