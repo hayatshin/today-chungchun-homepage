@@ -265,13 +265,7 @@ function Partner() {
             </ErrorBox>
             <PhoneInputBox>
               <PhoneInput
-                {...register("phone_one", {
-                  required: "핸드폰 번호를 입력해주세요.",
-                  minLength: {
-                    value: 3,
-                    message: "3글자 이상이어야 합니다.",
-                  },
-                })}
+                {...register("phone_one")}
                 type="text"
                 name="phone_one"
               />
@@ -279,13 +273,7 @@ function Partner() {
               <FormLabel>-</FormLabel>
               <div style={{ width: 10 }}></div>
               <PhoneInput
-                {...register("phone_two", {
-                  required: "핸드폰 번호를 입력해주세요.",
-                  minLength: {
-                    value: 3,
-                    message: "3글자 이상이어야 합니다.",
-                  },
-                })}
+                {...register("phone_two")}
                 type="text"
                 name="phone_two"
               />
@@ -293,13 +281,7 @@ function Partner() {
               <FormLabel>-</FormLabel>
               <div style={{ width: 10 }}></div>
               <PhoneInput
-                {...register("phone_three", {
-                  required: "핸드폰 번호를 입력해주세요.",
-                  minLength: {
-                    value: 4,
-                    message: "3글자 이상이어야 합니다.",
-                  },
-                })}
+                {...register("phone_three")}
                 type="text"
                 name="phone_three"
               />
