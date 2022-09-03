@@ -2,12 +2,22 @@ import styled from "styled-components";
 import colors from "../colors";
 import Border from "../components/Border";
 import ReactHelmet from "../components/ReactHelmet";
+import { generateMedia } from "styled-media-query";
+
+const customoMedia = generateMedia({
+  cellphone: "500px",
+});
 
 const ServiceWrapper = styled.div`
   width: 100%;
   height: 60vh;
   display: flex;
   flex-direction: row;
+
+  ${customoMedia.lessThan("cellphone")`
+  height: 100vh;
+  flex-direction: column;
+  `}
 `;
 
 const ContentBox = styled.div`
@@ -15,24 +25,42 @@ const ContentBox = styled.div`
   flex-direction: column;
   padding: 50px;
   position: relative;
+
+  ${customoMedia.lessThan("cellphone")`
+  padding: 40px;
+  `}
 `;
 
 const IntroHeader = styled.h2`
-  font-size: 50px;/static/media/intro.11bc7746b72b475d90e1.png
+  font-size: 50px;
   font-weight: 700;
   color: ${colors.mainColor};
   margin-bottom: 40px;
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 40px;
+  `}
 `;
 
 const IntroText = styled.p`
   font-size: 20px;
   line-height: 40px;
+
+  ${customoMedia.lessThan("cellphone")`
+  line-height: 35px;
+  `}
 `;
 
 const IntroImage = styled.img`
   width: 560px;
   height: 450px;
   margin-right: 150px;
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 350px;
+  height: 200px;
+  margin-right: 0px;
+  `}
 `;
 
 const IntroDeco = styled.div`
@@ -58,6 +86,10 @@ const CellWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  ${customoMedia.lessThan("cellphone")`
+   flex-direction: column;
+  `}
 `;
 
 const CellHeader = styled.h2`
@@ -70,6 +102,10 @@ const CellText = styled.p`
   font-size: 20px;
   color: ${colors.boldGray};
   margin-bottom: 20px;
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 15px;
+  `}
 `;
 
 const CellImg = styled.img`
@@ -80,6 +116,11 @@ const CellImg = styled.img`
 const CellImgLike = styled.img`
   width: 700px;
   height: 600px;
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 350px;
+  height: 300px;
+  `}
 `;
 
 function Service() {

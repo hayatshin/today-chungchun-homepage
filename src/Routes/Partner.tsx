@@ -5,6 +5,11 @@ import colors from "../colors";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ReactHelmet from "../components/ReactHelmet";
+import { generateMedia } from "styled-media-query";
+
+const customoMedia = generateMedia({
+  cellphone: "500px",
+});
 
 const PartnerWrapper = styled.div`
   width: 100%;
@@ -14,6 +19,11 @@ const PartnerWrapper = styled.div`
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
+
+  ${customoMedia.lessThan("cellphone")`
+  padding-top: 50px;
+  padding-bottom: 50px;
+  `}
 `;
 
 const FormBox = styled.form`

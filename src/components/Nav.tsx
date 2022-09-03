@@ -3,6 +3,11 @@ import { motion, useScroll, useAnimation } from "framer-motion";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import colors from "../colors";
+import { generateMedia } from "styled-media-query";
+
+const customoMedia = generateMedia({
+  cellphone: "500px",
+});
 
 const NavWrapper = styled(motion.nav)<{ ychange: number }>`
   z-index: 99;
@@ -22,6 +27,10 @@ const NavBox = styled.div`
   top: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+
+  ${customoMedia.lessThan("cellphone")`
+    width: 100%
+  `}
 `;
 
 const NavItem = styled.div`
@@ -64,6 +73,10 @@ const NavText = styled.span<NavTextProps>`
       : props.location === "/partner" && props.partnerMatch
       ? "500"
       : "400"};
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 16px;
+  `}
 `;
 
 const NavBottom = styled(motion.div)`

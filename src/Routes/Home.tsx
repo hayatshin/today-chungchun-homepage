@@ -3,12 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlay, faApple } from "@fortawesome/free-brands-svg-icons";
 import colors from "../colors";
 import ReactHelmet from "../components/ReactHelmet";
+import { generateMedia } from "styled-media-query";
+
+const customoMedia = generateMedia({
+  cellphone: "500px",
+});
 
 const Wrapper = styled.div`
   width: 100%;
   height: 200vh;
   display: flex;
   flex-direction: column;
+
+  ${customoMedia.lessThan("cellphone")`
+  height: 180vh;
+  `}
 `;
 
 const FirstPage = styled.div`
@@ -16,6 +25,10 @@ const FirstPage = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: row;
+
+  ${customoMedia.lessThan("cellphone")`
+  flex-direction: column;
+  `}
 `;
 
 const FirstBox = styled.div`
@@ -25,6 +38,11 @@ const FirstBox = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 70px;
+
+  ${customoMedia.lessThan("cellphone")`
+  height: 50%;
+  justify-content: center;
+  `}
 `;
 
 const HeaderText = styled.span`
@@ -32,6 +50,10 @@ const HeaderText = styled.span`
   font-weight: 400;
   color: ${colors.mainColor};
   margin-top: 20px;
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 23px;
+  `}
 `;
 
 const HeaderBigText = styled.span`
@@ -39,6 +61,11 @@ const HeaderBigText = styled.span`
   font-weight: 700;
   color: ${colors.mainColor};
   margin-top: 60px;
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 60px;
+  margin-top: 30px;
+  `}
 `;
 
 const ButtonContainer = styled.div`
@@ -47,6 +74,11 @@ const ButtonContainer = styled.div`
   margin-top: 60px;
   width: 400px;
   justify-content: space-between;
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 330px;
+  margin-top: 30px;
+  `}
 `;
 
 const ButtonBox = styled.div`
@@ -68,6 +100,10 @@ const ButtonBox = styled.div`
       color: white;
     }
   }
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 150px;
+  `}
 `;
 
 const ButtonText = styled.span`
@@ -77,12 +113,22 @@ const ButtonText = styled.span`
   &: hover {
     color: white;
   }
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 15px;
+  `}
 `;
 
 const LogoImage = styled.img`
   width: 400px;
   height: 400px;
   margin-right: 200px;
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 250px;
+  height: 250px;
+  margin-right: 0px;
+  `}
 `;
 
 const ImageTextBox = styled.div`
@@ -91,6 +137,11 @@ const ImageTextBox = styled.div`
   flex-direction: column;
   text-align: right;
   margin-right: 200px;
+
+  ${customoMedia.lessThan("cellphone")`
+  margin-right: 0px;
+  margin-top: -80px;
+  `}
 `;
 
 const ImageText = styled.span`
@@ -98,6 +149,11 @@ const ImageText = styled.span`
   font-weight: 500;
   color: ${colors.boldGray};
   margin-top: 20px;
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 20px;
+  margin-top: 0px;
+  `}
 `;
 
 const SecondPage = styled.div`
@@ -106,6 +162,51 @@ const SecondPage = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
+
+  ${customoMedia.lessThan("cellphone")`
+  height: 50%;
+  `}
+`;
+
+const SecondHave = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 55%;
+  height: 70%;
+  border: 3px solid ${colors.mainColor};
+  background-color: white;
+  border-bottom-right-radius: 150px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 60%;
+  height: 50%;
+  border-bottom-right-radius: 50px;
+  `}
+`;
+
+const SecondDontHave = styled.div`
+  width: 55%;
+  height: 60%;
+  border: 3px solid ${colors.lightMain};
+  background-color: white;
+  border-top-left-radius: 150px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 60%;
+  height: 60%;
+  border-top-left-radius: 50px;
+  `}
 `;
 
 const SecondTextBox = styled.div`
@@ -119,13 +220,11 @@ const SecondHeader = styled.span`
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 30px;
-`;
 
-const SecondText = styled.span`
-  color: ${colors.boldGray};
-  font-size: 28px;
-  font-weight: 400;
-  margin-top: 15px;
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 20px;
+  margin-bottom: 20px;
+  `}
 `;
 
 const HSecondHeader = styled.span`
@@ -135,6 +234,23 @@ const HSecondHeader = styled.span`
   margin-bottom: 30px;
   margin-left: 10px;
   margin-right: 10px;
+
+  ${customoMedia.lessThan("cellphone")`
+    margin-left: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+  `}
+`;
+
+const SecondText = styled.span`
+  color: ${colors.boldGray};
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 15px;
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 15px;
+  `}
 `;
 
 const HSecondText = styled.span`
@@ -143,6 +259,10 @@ const HSecondText = styled.span`
   font-weight: 400;
   margin-top: 15px;
   margin-left: 8px;
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 15px;
+  `}
 `;
 
 const SecondRow = styled.div`
@@ -187,22 +307,7 @@ function Home() {
           </FirstBox>
         </FirstPage>
         <SecondPage>
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              width: "55%",
-              height: "70%",
-              border: `3px solid ${colors.mainColor}`,
-              backgroundColor: "white",
-              borderBottomRightRadius: 150,
-              zIndex: 10,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <SecondHave>
             <SecondTextBox>
               <SecondRow>
                 <SecondHeader>청춘온 앱에</SecondHeader>
@@ -229,22 +334,8 @@ function Home() {
                 <HSecondText>있다</HSecondText>
               </SecondRow>
             </SecondTextBox>
-          </div>
-          <div
-            style={{
-              width: "55%",
-              height: "60%",
-              border: `3px solid ${colors.lightMain}`,
-              backgroundColor: "white",
-              borderTopLeftRadius: 150,
-              position: "absolute",
-              right: 0,
-              bottom: 0,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          </SecondHave>
+          <SecondDontHave>
             <SecondTextBox>
               <SecondRow>
                 <SecondHeader>청춘온 앱에</SecondHeader>
@@ -267,7 +358,7 @@ function Home() {
                 <HSecondText>없다</HSecondText>
               </SecondRow>
             </SecondTextBox>
-          </div>
+          </SecondDontHave>
         </SecondPage>
       </Wrapper>
     </>
