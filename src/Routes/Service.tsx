@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import colors from "../colors";
 import Border from "../components/Border";
+import ReactHelmet from "../components/ReactHelmet";
 
 const ServiceWrapper = styled.div`
   width: 100%;
@@ -84,6 +85,8 @@ const CellImgLike = styled.img`
 function Service() {
   return (
     <>
+      <ReactHelmet title="서비스" />
+
       <ServiceWrapper>
         <ContentBox>
           <IntroDeco></IntroDeco>

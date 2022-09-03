@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlay, faApple } from "@fortawesome/free-brands-svg-icons";
 import colors from "../colors";
+import ReactHelmet from "../components/ReactHelmet";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -152,121 +153,124 @@ const SecondRow = styled.div`
 
 function Home() {
   return (
-    <Wrapper>
-      <FirstPage>
-        <FirstBox>
-          <HeaderText>청춘을 켜다</HeaderText>
-          <HeaderText>청춘이 오다</HeaderText>
-          <HeaderBigText>청춘온</HeaderBigText>
-          <ButtonContainer>
-            <ButtonBox>
-              <FontAwesomeIcon
-                icon={faGooglePlay}
-                style={{ fontSize: 25, marginRight: 10 }}
-              />
-              <ButtonText>Google Play</ButtonText>
-            </ButtonBox>
-            <ButtonBox>
-              <FontAwesomeIcon
-                icon={faApple}
-                style={{ fontSize: 25, marginRight: 10 }}
-              />
-              <ButtonText>App Store</ButtonText>
-            </ButtonBox>
-          </ButtonContainer>
-        </FirstBox>
-        <FirstBox>
-          <ImageTextBox>
-            <ImageText>#여사님스타그램</ImageText>
-            <ImageText>#선생님스타그램</ImageText>
-          </ImageTextBox>
-          <LogoImage src={require("../assets/ch_icon.jpg")} />
-        </FirstBox>
-      </FirstPage>
-      <SecondPage>
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            top: 0,
-            width: "55%",
-            height: "70%",
-            border: `3px solid ${colors.mainColor}`,
-            backgroundColor: "white",
-            borderBottomRightRadius: 150,
-            zIndex: 10,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <SecondTextBox>
-            <SecondRow>
-              <SecondHeader>청춘온 앱에</SecondHeader>
-              <HSecondHeader>있는 것</HSecondHeader>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>걸음 수 측정이</SecondText>
-              <HSecondText>있다</HSecondText>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>일상 사진과 글이</SecondText>
-              <HSecondText>있다</HSecondText>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>시를 다 쓰면 액자 안에</SecondText>
-              <HSecondText>있다</HSecondText>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>모든 활동에 점수가</SecondText>
-              <HSecondText>있다</HSecondText>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>실시간 순위를 확인할 수</SecondText>
-              <HSecondText>있다</HSecondText>
-            </SecondRow>
-          </SecondTextBox>
-        </div>
-        <div
-          style={{
-            width: "55%",
-            height: "60%",
-            border: `3px solid ${colors.lightMain}`,
-            backgroundColor: "white",
-            borderTopLeftRadius: 150,
-            position: "absolute",
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <SecondTextBox>
-            <SecondRow>
-              <SecondHeader>청춘온 앱에</SecondHeader>
-              <HSecondHeader>없는 것</HSecondHeader>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>회원 가입이</SecondText>
-              <HSecondText>없다</HSecondText>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>영어가</SecondText>
-              <HSecondText>없다</HSecondText>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>작은 글씨가</SecondText>
-              <HSecondText>없다</HSecondText>
-            </SecondRow>
-            <SecondRow>
-              <SecondText>MZ 세대가</SecondText>
-              <HSecondText>없다</HSecondText>
-            </SecondRow>
-          </SecondTextBox>
-        </div>
-      </SecondPage>
-    </Wrapper>
+    <>
+      <ReactHelmet title="홈" />
+      <Wrapper>
+        <FirstPage>
+          <FirstBox>
+            <HeaderText>청춘을 켜다</HeaderText>
+            <HeaderText>청춘이 오다</HeaderText>
+            <HeaderBigText>청춘온</HeaderBigText>
+            <ButtonContainer>
+              <ButtonBox>
+                <FontAwesomeIcon
+                  icon={faGooglePlay}
+                  style={{ fontSize: 25, marginRight: 10 }}
+                />
+                <ButtonText>Google Play</ButtonText>
+              </ButtonBox>
+              <ButtonBox>
+                <FontAwesomeIcon
+                  icon={faApple}
+                  style={{ fontSize: 25, marginRight: 10 }}
+                />
+                <ButtonText>App Store</ButtonText>
+              </ButtonBox>
+            </ButtonContainer>
+          </FirstBox>
+          <FirstBox>
+            <ImageTextBox>
+              <ImageText>#여사님스타그램</ImageText>
+              <ImageText>#선생님스타그램</ImageText>
+            </ImageTextBox>
+            <LogoImage src={require("../assets/ch_icon.jpg")} />
+          </FirstBox>
+        </FirstPage>
+        <SecondPage>
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              width: "55%",
+              height: "70%",
+              border: `3px solid ${colors.mainColor}`,
+              backgroundColor: "white",
+              borderBottomRightRadius: 150,
+              zIndex: 10,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <SecondTextBox>
+              <SecondRow>
+                <SecondHeader>청춘온 앱에</SecondHeader>
+                <HSecondHeader>있는 것</HSecondHeader>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>걸음 수 측정이</SecondText>
+                <HSecondText>있다</HSecondText>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>일상 사진과 글이</SecondText>
+                <HSecondText>있다</HSecondText>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>시를 다 쓰면 액자 안에</SecondText>
+                <HSecondText>있다</HSecondText>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>모든 활동에 점수가</SecondText>
+                <HSecondText>있다</HSecondText>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>실시간 순위를 확인할 수</SecondText>
+                <HSecondText>있다</HSecondText>
+              </SecondRow>
+            </SecondTextBox>
+          </div>
+          <div
+            style={{
+              width: "55%",
+              height: "60%",
+              border: `3px solid ${colors.lightMain}`,
+              backgroundColor: "white",
+              borderTopLeftRadius: 150,
+              position: "absolute",
+              right: 0,
+              bottom: 0,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <SecondTextBox>
+              <SecondRow>
+                <SecondHeader>청춘온 앱에</SecondHeader>
+                <HSecondHeader>없는 것</HSecondHeader>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>회원 가입이</SecondText>
+                <HSecondText>없다</HSecondText>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>영어가</SecondText>
+                <HSecondText>없다</HSecondText>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>작은 글씨가</SecondText>
+                <HSecondText>없다</HSecondText>
+              </SecondRow>
+              <SecondRow>
+                <SecondText>MZ 세대가</SecondText>
+                <HSecondText>없다</HSecondText>
+              </SecondRow>
+            </SecondTextBox>
+          </div>
+        </SecondPage>
+      </Wrapper>
+    </>
   );
 }
 

@@ -85,8 +85,6 @@ function Nav() {
   const navAnimation = useAnimation();
   useEffect(() => {
     scrollY.onChange(() => {
-      console.log(scrollY.get());
-
       setYchange(scrollY.get());
       if (scrollY.get() > 0 && scrollY.get() < 500) {
         navAnimation.start({
