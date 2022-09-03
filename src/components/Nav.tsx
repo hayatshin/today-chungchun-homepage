@@ -61,7 +61,7 @@ const NavText = styled.span<NavTextProps>`
       ? colors.mainColor
       : props.location === "/partner" && props.partnerMatch
       ? colors.mainColor
-      : null};
+      : colors.boldGray};
   font-size: 20px;
   font-weight: ${(props) =>
     props.location === "/" && props.homeMatch

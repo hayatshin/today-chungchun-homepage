@@ -23,7 +23,7 @@ function Footer() {
       <FooterText style={{ fontWeight: 400, fontSize: 20, marginBottom: 20 }}>
         청춘온
       </FooterText>
-      <FooterText>대표: 신태건</FooterText>
+      <FooterText>대표: 신혜정</FooterText>
       <FooterText>경기도 성남시 위례순환로 53 2동 13층</FooterText>
       <FooterText>문의 메일: help@chungchunon.com</FooterText>
       <FooterText>문의 번호: 031-756-1214</FooterText>

@@ -164,6 +164,7 @@ const SecondPage = styled.div`
   justify-content: space-between;
 
   ${customoMedia.lessThan("cellphone")`
+  margin-top: 50px;
   height: 50%;
   `}
 `;
