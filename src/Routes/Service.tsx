@@ -45,16 +45,18 @@ const IntroHeader = styled.h2`
 const IntroText = styled.p`
   font-size: 20px;
   line-height: 40px;
+  margin-bottom: 5px;
 
   ${customoMedia.lessThan("cellphone")`
-  line-height: 35px;
+    font-size: 18px;
+    line-height: 35px;
   `}
 `;
 
 const IntroImage = styled.img`
-  width: 560px;
+  width: 600px;
   height: 450px;
-  margin-right: 150px;
+  margin-right: 80px;
 
   ${customoMedia.lessThan("cellphone")`
   width: 350px;
@@ -134,15 +136,17 @@ function Service() {
           <div style={{ zIndex: 99 }}>
             <IntroHeader>청춘온이란?</IntroHeader>
             <IntroText>
-              치매예방 활동에 대한 모든 것을 데이터와 컨텐츠로 연결하여
+              치매 예방에 대한 모든 것을 데이터와 컨텐츠로 연결하여
             </IntroText>
             <IntroText>
-              더욱 활발한 노후 생활을 만들어주는 치매 예방 플랫폼입니다.
+              정신 및 신체 활동 증진을 돕는 치매 예방 플랫폼 입니다.
             </IntroText>
             <IntroText>
               일상 올리기, 시 쓰기, 댓글과 좋아요, 걸음수와 활동 순위까지
             </IntroText>
-            <IntroText> 청춘온 하나로 제2의 청춘을 경험해보세요!</IntroText>
+            <IntroText>
+              청춘온 하나로 시니어들의 제2의 청춘을 경험해보세요!
+            </IntroText>
           </div>
         </ContentBox>
         <ContentBox>

@@ -315,23 +315,33 @@ function Home() {
                 <HSecondHeader>있는 것</HSecondHeader>
               </SecondRow>
               <SecondRow>
-                <SecondText>걸음 수 측정이</SecondText>
+                <SecondText style={{ fontWeight: 500, marginRight: 5 }}>
+                  걸음수
+                </SecondText>
+                <SecondText>측정이</SecondText>
                 <HSecondText>있다</HSecondText>
               </SecondRow>
               <SecondRow>
-                <SecondText>일상 사진과 글이</SecondText>
+                <SecondText style={{ fontWeight: 500, marginRight: 5 }}>
+                  일상
+                </SecondText>
+                <SecondText>사진과 글이</SecondText>
                 <HSecondText>있다</HSecondText>
               </SecondRow>
               <SecondRow>
-                <SecondText>시를 다 쓰면 액자 안에</SecondText>
+                <SecondText>모든 활동에</SecondText>
+                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
+                  점수
+                </SecondText>
+                <SecondText>가</SecondText>
                 <HSecondText>있다</HSecondText>
               </SecondRow>
               <SecondRow>
-                <SecondText>모든 활동에 점수가</SecondText>
-                <HSecondText>있다</HSecondText>
-              </SecondRow>
-              <SecondRow>
-                <SecondText>실시간 순위를 확인할 수</SecondText>
+                <SecondText>실시간</SecondText>
+                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
+                  순위
+                </SecondText>
+                <SecondText>를 확인할 수</SecondText>
                 <HSecondText>있다</HSecondText>
               </SecondRow>
             </SecondTextBox>
@@ -343,19 +353,32 @@ function Home() {
                 <HSecondHeader>없는 것</HSecondHeader>
               </SecondRow>
               <SecondRow>
-                <SecondText>회원 가입이</SecondText>
+                <SecondText>복잡한</SecondText>
+                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
+                  회원가입
+                </SecondText>
+                <SecondText>이</SecondText>
                 <HSecondText>없다</HSecondText>
               </SecondRow>
               <SecondRow>
-                <SecondText>영어가</SecondText>
+                <SecondText style={{ fontWeight: 500 }}>영어</SecondText>
+                <SecondText>로 된 것이</SecondText>
                 <HSecondText>없다</HSecondText>
               </SecondRow>
               <SecondRow>
-                <SecondText>작은 글씨가</SecondText>
+                <SecondText>보기 힘든</SecondText>
+                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
+                  작은 글씨
+                </SecondText>
+                <SecondText>가</SecondText>
                 <HSecondText>없다</HSecondText>
               </SecondRow>
               <SecondRow>
-                <SecondText>MZ 세대가</SecondText>
+                <SecondText>갈등의</SecondText>
+                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
+                  MZ세대
+                </SecondText>
+                <SecondText>가</SecondText>
                 <HSecondText>없다</HSecondText>
               </SecondRow>
             </SecondTextBox>
