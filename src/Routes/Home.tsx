@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlay, faApple } from "@fortawesome/free-brands-svg-icons";
 import colors from "../colors";
-import ReactHelmet from "../components/ReactHelmet";
 import { generateMedia } from "styled-media-query";
+import { Helmet } from "react-helmet-async";
+import YouTube from "react-youtube";
 
 const customoMedia = generateMedia({
   cellphone: "500px",
@@ -11,7 +12,6 @@ const customoMedia = generateMedia({
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 200vh;
   display: flex;
   flex-direction: column;
 
@@ -25,6 +25,7 @@ const FirstPage = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: row;
+  margin-bottom: 30px;
 
   ${customoMedia.lessThan("cellphone")`
   flex-direction: column;
@@ -32,27 +33,19 @@ const FirstPage = styled.div`
 `;
 
 const FirstBox = styled.div`
-  width: 70%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 70px;
+  padding-top: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 150px;
 
   ${customoMedia.lessThan("cellphone")`
   height: 50%;
   justify-content: center;
-  `}
-`;
-
-const HeaderText = styled.span`
-  font-size: 35px;
-  font-weight: 400;
-  color: ${colors.mainColor};
-  margin-top: 20px;
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 23px;
   `}
 `;
 
@@ -92,8 +85,42 @@ const ButtonBox = styled.div`
   align-items: center;
   border: 1px solid ${colors.mainColor};
   cursor: pointer;
+  .font {
+    color: ${colors.boldGray};
+  }
   &: hover {
     border: 1px solid ${colors.boldGray};
+    background-color: ${colors.boldGray};
+    color: white;
+    span {
+      color: white;
+    }
+    .font {
+      color: white;
+    }
+  }
+
+  ${customoMedia.lessThan("cellphone")`
+  width: 150px;
+  `}
+`;
+
+const NewsBox = styled.div`
+  margin-top: 50px;
+  width: 600px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: ${colors.mainColor};
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  .font {
+    color: ${colors.boldGray};
+  }
+  &: hover {
     background-color: ${colors.boldGray};
     color: white;
     span {
@@ -119,10 +146,21 @@ const ButtonText = styled.span`
   `}
 `;
 
+const NewsText = styled.span`
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  &: hover {
+    color: white;
+  }
+
+  ${customoMedia.lessThan("cellphone")`
+  font-size: 15px;
+  `}
+`;
+
 const LogoImage = styled.img`
-  width: 400px;
-  height: 400px;
-  margin-right: 200px;
+  width: 600px;
 
   ${customoMedia.lessThan("cellphone")`
   width: 250px;
@@ -131,37 +169,12 @@ const LogoImage = styled.img`
   `}
 `;
 
-const ImageTextBox = styled.div`
+const SecondPage = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  text-align: right;
-  margin-right: 200px;
-
-  ${customoMedia.lessThan("cellphone")`
-  margin-right: 0px;
-  margin-top: -80px;
-  `}
-`;
-
-const ImageText = styled.span`
-  font-size: 25px;
-  font-weight: 500;
-  color: ${colors.boldGray};
-  margin-top: 20px;
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 20px;
-  margin-top: 0px;
-  `}
-`;
-
-const SecondPage = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10%;
 
   ${customoMedia.lessThan("cellphone")`
   margin-top: 50px;
@@ -169,221 +182,128 @@ const SecondPage = styled.div`
   `}
 `;
 
-const SecondHave = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 55%;
-  height: 70%;
-  border: 3px solid ${colors.mainColor};
-  background-color: white;
-  border-bottom-right-radius: 150px;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  ${customoMedia.lessThan("cellphone")`
-  width: 60%;
-  height: 50%;
-  border-bottom-right-radius: 50px;
-  `}
-`;
-
-const SecondDontHave = styled.div`
-  width: 55%;
-  height: 60%;
-  border: 3px solid ${colors.lightMain};
-  background-color: white;
-  border-top-left-radius: 150px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  ${customoMedia.lessThan("cellphone")`
-  width: 60%;
-  height: 60%;
-  border-top-left-radius: 50px;
-  `}
-`;
-
-const SecondTextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  z-index: 50;
-`;
-
-const SecondHeader = styled.span`
-  color: ${colors.boldGray};
-  font-size: 30px;
-  font-weight: 600;
-  margin-bottom: 30px;
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 20px;
-  margin-bottom: 20px;
-  `}
-`;
-
-const HSecondHeader = styled.span`
-  color: ${colors.mainColor};
-  font-size: 30px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-
-  ${customoMedia.lessThan("cellphone")`
-    margin-left: 10px;
-    font-size: 20px;
-    margin-bottom: 20px;
-  `}
-`;
-
-const SecondText = styled.span`
-  color: ${colors.boldGray};
-  font-size: 28px;
-  font-weight: 400;
-  margin-top: 15px;
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 15px;
-  `}
-`;
-
-const HSecondText = styled.span`
-  color: ${colors.mainColor};
-  font-size: 28px;
-  font-weight: 400;
-  margin-top: 15px;
-  margin-left: 8px;
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 15px;
-  `}
-`;
-
-const SecondRow = styled.div`
+const ThirdPage = styled.div`
+  width: 100%;
+  height: 600px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: flex-end;
+`;
+
+const VideoText = styled.span`
+  font-family: "spoqa";
+  font-weight: 800;
+  font-size: 40px;
+  color: ${colors.mainColor};
+  margin-bottom: 20px;
 `;
 
 function Home() {
   return (
     <>
-      <ReactHelmet title="홈" />
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>금연온</title>
+      </Helmet>
       <Wrapper>
         <FirstPage>
           <FirstBox>
-            <HeaderText>청춘을 켜다</HeaderText>
-            <HeaderText>청춘이 오다</HeaderText>
-            <HeaderBigText>청춘온</HeaderBigText>
+            <img
+              src={require("../assets/main_title.png")}
+              style={{ width: "75%" }}
+            />
+            <HeaderBigText>금연온</HeaderBigText>
             <ButtonContainer>
               <ButtonBox>
-                <FontAwesomeIcon
-                  icon={faGooglePlay}
-                  style={{ fontSize: 25, marginRight: 10 }}
-                />
-                <ButtonText>Google Play</ButtonText>
+                <a
+                  style={{ textDecoration: "none" }}
+                  href="https://play.google.com/store/apps/details?id=kr.no_smoking"
+                  target={"_blank"}
+                >
+                  <FontAwesomeIcon
+                    className="font"
+                    icon={faGooglePlay}
+                    style={{
+                      fontSize: 25,
+                      marginRight: 10,
+                    }}
+                  />
+                  <ButtonText>Google Play</ButtonText>
+                </a>
               </ButtonBox>
               <ButtonBox>
-                <FontAwesomeIcon
-                  icon={faApple}
-                  style={{ fontSize: 25, marginRight: 10 }}
-                />
-                <ButtonText>App Store</ButtonText>
+                <a
+                  style={{ textDecoration: "none" }}
+                  href="https://apps.apple.com/kr/app/%EA%B8%88%EC%97%B0on-%EB%8B%B9%EC%8B%A0%EC%9D%98-%EB%93%A0%EB%93%A0%ED%95%9C-%EA%B8%88%EC%97%B0%ED%8C%8C%ED%8A%B8%EB%84%88-%EB%B9%84%EB%8C%80%EB%A9%B4-%ED%81%B4%EB%A6%AC%EB%8B%89-%EA%B8%88%EC%97%B0%EC%98%A8/id1542173611"
+                  target={"_blank"}
+                >
+                  <FontAwesomeIcon
+                    className="font"
+                    icon={faApple}
+                    style={{
+                      fontSize: 25,
+                      marginRight: 10,
+                    }}
+                  />
+                  <ButtonText>App Store</ButtonText>
+                </a>
               </ButtonBox>
             </ButtonContainer>
           </FirstBox>
           <FirstBox>
-            <ImageTextBox>
-              <ImageText>#여사님스타그램</ImageText>
-              <ImageText>#선생님스타그램</ImageText>
-            </ImageTextBox>
-            <LogoImage src={require("../assets/ch_icon.jpg")} />
+            <LogoImage src={require("../assets/room.png")} />
           </FirstBox>
         </FirstPage>
         <SecondPage>
-          <SecondHave>
-            <SecondTextBox>
-              <SecondRow>
-                <SecondHeader>청춘온 앱에</SecondHeader>
-                <HSecondHeader>있는 것</HSecondHeader>
-              </SecondRow>
-              <SecondRow>
-                <SecondText style={{ fontWeight: 500, marginRight: 5 }}>
-                  걸음수
-                </SecondText>
-                <SecondText>측정이</SecondText>
-                <HSecondText>있다</HSecondText>
-              </SecondRow>
-              <SecondRow>
-                <SecondText style={{ fontWeight: 500, marginRight: 5 }}>
-                  일상
-                </SecondText>
-                <SecondText>사진과 글이</SecondText>
-                <HSecondText>있다</HSecondText>
-              </SecondRow>
-              <SecondRow>
-                <SecondText>모든 활동에</SecondText>
-                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
-                  점수
-                </SecondText>
-                <SecondText>가</SecondText>
-                <HSecondText>있다</HSecondText>
-              </SecondRow>
-              <SecondRow>
-                <SecondText>실시간</SecondText>
-                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
-                  순위
-                </SecondText>
-                <SecondText>를 확인할 수</SecondText>
-                <HSecondText>있다</HSecondText>
-              </SecondRow>
-            </SecondTextBox>
-          </SecondHave>
-          <SecondDontHave>
-            <SecondTextBox>
-              <SecondRow>
-                <SecondHeader>청춘온 앱에</SecondHeader>
-                <HSecondHeader>없는 것</HSecondHeader>
-              </SecondRow>
-              <SecondRow>
-                <SecondText>복잡한</SecondText>
-                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
-                  회원가입
-                </SecondText>
-                <SecondText>이</SecondText>
-                <HSecondText>없다</HSecondText>
-              </SecondRow>
-              <SecondRow>
-                <SecondText style={{ fontWeight: 500 }}>영어</SecondText>
-                <SecondText>로 된 것이</SecondText>
-                <HSecondText>없다</HSecondText>
-              </SecondRow>
-              <SecondRow>
-                <SecondText>보기 힘든</SecondText>
-                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
-                  작은 글씨
-                </SecondText>
-                <SecondText>가</SecondText>
-                <HSecondText>없다</HSecondText>
-              </SecondRow>
-              <SecondRow>
-                <SecondText>갈등의</SecondText>
-                <SecondText style={{ fontWeight: 500, marginLeft: 5 }}>
-                  MZ세대
-                </SecondText>
-                <SecondText>가</SecondText>
-                <HSecondText>없다</HSecondText>
-              </SecondRow>
-            </SecondTextBox>
-          </SecondDontHave>
+          <img
+            src={require("../assets/nosmoking_news.png")}
+            style={{ width: 700, height: 400 }}
+          />
+          <NewsBox>
+            <a
+              style={{ textDecoration: "none" }}
+              href="https://search.naver.com/search.naver?sm=tab_hty.top&where=news&query=%EA%B8%88%EC%97%B0%EC%98%A8+%2B+%EB%AA%A8%EB%B0%94%EC%9D%BC+%2B+%ED%81%B4%EB%A6%AC%EB%8B%89+%2B+%EC%95%B1&oquery=%EA%B8%88%EC%97%B0%EC%98%A8+%2B+%EB%AA%A8%EB%B0%94%EC%9D%BC+%2B+%ED%81%B4%EB%A6%AC%EB%8B%89&tqi=hGB6%2Blprvmsssc3hkpRsssssslR-182052"
+              target={"_blank"}
+            >
+              <NewsText>네이버 기사 모아보기</NewsText>
+            </a>
+          </NewsBox>
         </SecondPage>
+        <ThirdPage>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "end",
+              marginRight: 60,
+            }}
+          >
+            <VideoText>광주시,</VideoText>
+            <VideoText>금연온을 이용한</VideoText>
+            <VideoText>금연클리닉 홍보 영상</VideoText>
+          </div>
+          <YouTube
+            videoId={"-4JFlQQndDE"}
+            opts={{
+              width: "500",
+              height: "300",
+
+              playerVars: {
+                autoplay: 1, //자동재생 O
+                rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
+                modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
+              },
+            }}
+            onEnd={(e) => {
+              e.target.stopVideo(0);
+            }}
+          />
+          <img
+            src={require("../assets/counselor.png")}
+            style={{ width: "450px", height: "450px", alignSelf: "flex-end" }}
+          />
+        </ThirdPage>
       </Wrapper>
     </>
   );

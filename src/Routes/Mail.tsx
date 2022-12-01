@@ -35,7 +35,7 @@ function Mail() {
         icon={faPaperPlane}
         style={{ fontSize: 100, marginBottom: 100, color: colors.mainColor }}
       />
-      <MailText>성공적으로 제휴 문의를 전송했습니다.</MailText>
+      <MailText>성공적으로 계약 문의를 전송했습니다.</MailText>
       <MailText>빠르게 회신 드리도록 하겠습니다.</MailText>
     </MailWrapper>
   );

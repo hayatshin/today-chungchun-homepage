@@ -215,7 +215,7 @@ function Partner() {
 
   return (
     <>
-      <ReactHelmet title="제휴 문의" />
+      <ReactHelmet title="계약 문의" />
       <PartnerWrapper>
         <FormBox ref={form} onSubmit={handleSubmit(onValid)}>
           <EachFormBox>
@@ -311,9 +311,9 @@ function Partner() {
             <AgreeContent>
               <AgreeText>(필수)개인정보 수집, 이용에 대한 안내</AgreeText>
               <AgreeText>
-                청춘온(주)는 이용자 문의를 처리하기 위해 다음과 같이 개인정보를
-                수집 및 이용하며, 이용자의 개인 정보를 안전하게 취급하는데
-                최선을 다하고 있습니다.
+                (주)신지컴퍼니는 이용자 문의를 처리하기 위해 다음과 같이
+                개인정보를 수집 및 이용하며, 이용자의 개인 정보를 안전하게
+                취급하는데 최선을 다하고 있습니다.
               </AgreeText>
               <AgreeText>수집항목: 이름, 이메일 주소</AgreeText>
             </AgreeContent>

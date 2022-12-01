@@ -7,13 +7,15 @@ function Border() {
         width: "100%",
         display: "flex",
         justifyContent: "center",
+        marginTop: 50,
+        marginBottom: 50,
       }}
     >
       <div
         style={{
-          width: "60%",
-          height: 3,
-          backgroundColor: colors.lightMain,
+          width: "70%",
+          height: 2,
+          backgroundColor: colors.lightGray,
           display: "flex",
           justifyItems: "center",
         }}

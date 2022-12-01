@@ -21,15 +21,16 @@ function Footer() {
   return (
     <FooterWrapper>
       <FooterText style={{ fontWeight: 400, fontSize: 20, marginBottom: 20 }}>
-        청춘온
+        (주)신지컴퍼니
       </FooterText>
       <FooterText>대표: 신혜정</FooterText>
-      <FooterText>경기도 성남시 위례순환로 53 2동 13층</FooterText>
-      <FooterText>문의 메일: help@chungchunon.com</FooterText>
-      <FooterText>문의 번호: 031-756-1214</FooterText>
-      <FooterText>사업자 등록번호: 628-36-01150</FooterText>
+      <FooterText>서울특별시 강동구 구천면로 427-8, 202호</FooterText>
+      <FooterText>문의 메일: help@no-smoking.kr</FooterText>
+      <FooterText>문의 번호: 02-6285-0825</FooterText>
+      <FooterText>팩스 번호: 0504-033-5367</FooterText>
+      <FooterText>사업자 등록번호: 694-86-02165</FooterText>
       <FooterText style={{ fontWeight: 400, marginTop: 20 }}>
-        Copyright © {new Date().getFullYear()} 청춘온 All rights reserved.
+        © 본 홈페이지에 대한 모든 권리는 신지컴퍼니(주)에 귀속됩니다.
       </FooterText>
     </FooterWrapper>
   );

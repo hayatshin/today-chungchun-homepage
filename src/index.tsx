@@ -1,8 +1,7 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createGlobalStyle } from "styled-components";
-import { library } from "@fortawesome/fontawesome-svg-core";
+import { HelmetProvider } from "react-helmet-async";
 
 const GlobalStyle = createGlobalStyle`
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -59,6 +58,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <>
     <GlobalStyle />
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </>
 );

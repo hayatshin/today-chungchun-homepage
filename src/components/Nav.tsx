@@ -82,7 +82,7 @@ const NavText = styled.span<NavTextProps>`
 const NavBottom = styled(motion.div)`
   width: 100%;
   height: 2px;
-  background-color: #ff2d78;
+  background-color: #d35655;
   position: absolute;
   bottom: 0;
 `;
@@ -91,7 +91,7 @@ function Nav() {
   const location = useLocation().pathname;
   const homeMatch = useMatch("/")?.pattern.end;
   const serviceMatch = useMatch("/service")?.pattern.end;
-  const newsMatch = useMatch("/news")?.pattern.end;
+  const appMatch = useMatch("/app")?.pattern.end;
   const partnerMatch = useMatch("/partner")?.pattern.end;
   const { scrollY } = useScroll();
   const [ychange, setYchange] = useState(0);
@@ -121,7 +121,7 @@ function Nav() {
             }}
           >
             <NavText location={location} homeMatch={homeMatch}>
-              청춘온
+              금연온
             </NavText>
           </Link>
           {homeMatch && <NavBottom layoutId="nav" />}
@@ -129,24 +129,24 @@ function Nav() {
         <NavItem>
           <Link to="/service" style={{ textDecoration: "none" }}>
             <NavText location={location} serviceMatch={serviceMatch}>
-              서비스 안내
+              서비스 소개
             </NavText>
           </Link>
           {serviceMatch && <NavBottom layoutId="nav" />}
         </NavItem>
         <NavItem>
-          <Link to="/news" style={{ textDecoration: "none" }}>
-            <NavText location={location} newsMatch={newsMatch}>
-              활용 사례
+          <Link to="/app" style={{ textDecoration: "none" }}>
+            <NavText location={location} newsMatch={appMatch}>
+              앱 소개
             </NavText>
           </Link>
-          {newsMatch && <NavBottom layoutId="nav" />}
+          {appMatch && <NavBottom layoutId="nav" />}
         </NavItem>
 
         <NavItem>
           <Link to="/partner" style={{ textDecoration: "none" }}>
             <NavText location={location} partnerMatch={partnerMatch}>
-              제휴 문의
+              계약 문의
             </NavText>
           </Link>
           {partnerMatch && <NavBottom layoutId="nav" />}
