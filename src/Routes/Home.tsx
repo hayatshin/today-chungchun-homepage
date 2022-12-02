@@ -2,34 +2,20 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlay, faApple } from "@fortawesome/free-brands-svg-icons";
 import colors from "../colors";
-import { generateMedia } from "styled-media-query";
 import { Helmet } from "react-helmet-async";
 import YouTube from "react-youtube";
-
-const customoMedia = generateMedia({
-  cellphone: "500px",
-});
 
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  ${customoMedia.lessThan("cellphone")`
-  height: 180vh;
-  `}
 `;
 
 const FirstPage = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: row;
-  margin-bottom: 30px;
-
-  ${customoMedia.lessThan("cellphone")`
-  flex-direction: column;
-  `}
+  margin-bottom: 150px;
 `;
 
 const FirstBox = styled.div`
@@ -41,12 +27,6 @@ const FirstBox = styled.div`
   padding-top: 60px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-bottom: 150px;
-
-  ${customoMedia.lessThan("cellphone")`
-  height: 50%;
-  justify-content: center;
-  `}
 `;
 
 const HeaderBigText = styled.span`
@@ -54,11 +34,6 @@ const HeaderBigText = styled.span`
   font-weight: 700;
   color: ${colors.mainColor};
   margin-top: 60px;
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 60px;
-  margin-top: 30px;
-  `}
 `;
 
 const ButtonContainer = styled.div`
@@ -67,11 +42,6 @@ const ButtonContainer = styled.div`
   margin-top: 60px;
   width: 400px;
   justify-content: space-between;
-
-  ${customoMedia.lessThan("cellphone")`
-  width: 330px;
-  margin-top: 30px;
-  `}
 `;
 
 const ButtonBox = styled.div`
@@ -99,10 +69,6 @@ const ButtonBox = styled.div`
       color: white;
     }
   }
-
-  ${customoMedia.lessThan("cellphone")`
-  width: 150px;
-  `}
 `;
 
 const NewsBox = styled.div`
@@ -127,10 +93,6 @@ const NewsBox = styled.div`
       color: white;
     }
   }
-
-  ${customoMedia.lessThan("cellphone")`
-  width: 150px;
-  `}
 `;
 
 const ButtonText = styled.span`
@@ -140,10 +102,6 @@ const ButtonText = styled.span`
   &: hover {
     color: white;
   }
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 15px;
-  `}
 `;
 
 const NewsText = styled.span`
@@ -153,20 +111,10 @@ const NewsText = styled.span`
   &: hover {
     color: white;
   }
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 15px;
-  `}
 `;
 
 const LogoImage = styled.img`
   width: 600px;
-
-  ${customoMedia.lessThan("cellphone")`
-  width: 250px;
-  height: 250px;
-  margin-right: 0px;
-  `}
 `;
 
 const SecondPage = styled.div`
@@ -174,21 +122,39 @@ const SecondPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10%;
+  margin-bottom: 200px;
 
-  ${customoMedia.lessThan("cellphone")`
-  margin-top: 50px;
-  height: 50%;
-  `}
+  @media screen and (max-width: 500px) {
+    margin-bottom: 300px;
+  }
 `;
 
 const ThirdPage = styled.div`
   width: 100%;
-  height: 600px;
+  padding-bottom: 400px;
+  position: relative;
   margin-bottom: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 500px;
+  }
+`;
+
+const VideoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  margin-right: 60px;
+
+  @media screen and (max-width: 500px) {
+    text-align: start;
+    margin-bottom: 50px;
+  }
 `;
 
 const VideoText = styled.span`
@@ -197,6 +163,14 @@ const VideoText = styled.span`
   font-size: 40px;
   color: ${colors.mainColor};
   margin-bottom: 20px;
+`;
+
+const CounselorImg = styled.img`
+  display: flex;
+  justify-self: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;
 
 function Home() {
@@ -252,7 +226,10 @@ function Home() {
             </ButtonContainer>
           </FirstBox>
           <FirstBox>
-            <LogoImage src={require("../assets/room.png")} />
+            <LogoImage
+              style={{ width: 600 }}
+              src={require("../assets/room.png")}
+            />
           </FirstBox>
         </FirstPage>
         <SecondPage>
@@ -271,18 +248,11 @@ function Home() {
           </NewsBox>
         </SecondPage>
         <ThirdPage>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              textAlign: "end",
-              marginRight: 60,
-            }}
-          >
+          <VideoBox>
             <VideoText>광주시보건소,</VideoText>
             <VideoText>금연온을 이용한</VideoText>
             <VideoText>금연클리닉 홍보 영상</VideoText>
-          </div>
+          </VideoBox>
           <YouTube
             videoId={"-4JFlQQndDE"}
             opts={{
@@ -299,7 +269,7 @@ function Home() {
               e.target.stopVideo(0);
             }}
           />
-          <img
+          <CounselorImg
             src={require("../assets/counselor.png")}
             style={{ width: "450px", height: "450px", alignSelf: "flex-end" }}
           />

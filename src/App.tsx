@@ -15,7 +15,12 @@ function App() {
         <meta property="og:type" content="website" />
         <meta
           name="keywords"
-          content="금연온, 금연ON, 비대면, 금연클리닉, 보건소, 금연, 노담, 금연사업"
+          content="금연온, 금연ON, 비대면, 금연클리닉, 보건소, 금연, 노담, 금연사업, 금연앱,
+          금연어플,
+          금연플랫폼,
+          금연치료,
+          금연병원,
+          rnadysdgs"
         />
         <meta
           name="title"

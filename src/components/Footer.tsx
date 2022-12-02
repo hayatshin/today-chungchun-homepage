@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "../colors";
 
 const FooterWrapper = styled.div`
+  width: 100%;
   background-color: ${colors.boldGray};
   display: flex;
   flex-direction: column;
