@@ -39,6 +39,7 @@ function App() {
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:url" content="https://www.no-smoking.kr" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ko_KR" />
         <meta
