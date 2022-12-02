@@ -36,6 +36,7 @@ function App() {
           content="금연 | 대한민국 | Untact시대의 비대면 금연클리닉, 금연온"
         />
         <meta property="og:image" content="../assets/room.png" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
