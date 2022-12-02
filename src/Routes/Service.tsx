@@ -59,9 +59,7 @@ function Service() {
       {/* 금연클리닉 */}
       <CellWrapper style={{ alignSelf: "flex-start", marginTop: 50 }}>
         <ContentBox>
-          <CellHeader>
-            1. "금연클리닉 등록 미션"을 통한 비대면 금연클리닉 접수
-          </CellHeader>
+          <CellHeader>1. 금연클리닉 등록 미션</CellHeader>
           <CellText>
             금연ON App 안에서 "금연클리닉 등록 미션"에 참여하면 보건소 방문
             없이도 <br /> "금연클리닉 등록카드"와 "서비스 참여 및
@@ -91,7 +89,7 @@ function Service() {
             </div>
             <div>
               <CellHeader style={{ textAlign: "end" }}>
-                2. "친구초대 미션"을 통한 비흡연자의 참여 유도
+                2. 친구초대 미션
               </CellHeader>
               <CellText style={{ textAlign: "end" }}>
                 본인은 비흡연자라도, 주변에 흡연자 한 명 정도는 있기 마련입니다.

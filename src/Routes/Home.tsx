@@ -279,7 +279,7 @@ function Home() {
               marginRight: 60,
             }}
           >
-            <VideoText>광주시,</VideoText>
+            <VideoText>광주시보건소,</VideoText>
             <VideoText>금연온을 이용한</VideoText>
             <VideoText>금연클리닉 홍보 영상</VideoText>
           </div>
