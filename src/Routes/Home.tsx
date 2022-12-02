@@ -123,10 +123,6 @@ const SecondPage = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 200px;
-
-  @media screen and (max-width: 500px) {
-    margin-bottom: 300px;
-  }
 `;
 
 const ThirdPage = styled.div`
@@ -137,12 +133,6 @@ const ThirdPage = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-  @media screen and (max-width: 500px) {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 500px;
-  }
 `;
 
 const VideoBox = styled.div`
@@ -150,11 +140,6 @@ const VideoBox = styled.div`
   flex-direction: column;
   text-align: end;
   margin-right: 60px;
-
-  @media screen and (max-width: 500px) {
-    text-align: start;
-    margin-bottom: 50px;
-  }
 `;
 
 const VideoText = styled.span`

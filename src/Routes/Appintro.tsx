@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import colors from "../colors";
 import Border from "../components/Border";
@@ -27,10 +28,9 @@ const CellBox = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 1100px) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 `;
 
@@ -40,9 +40,8 @@ const CellText = styled.p`
   margin-bottom: 15px;
   line-height: 45px;
 
-  @media screen and (max-width: 500px) {
-    font-size: 15px;
-    line-height: 20px;
+  @media screen and (max-width: 1100px) {
+    line-height: 30px;
   }
 `;
 
@@ -55,10 +54,6 @@ const CellImgBox = styled.div`
 
 const CellImg = styled.img`
   width: 300px;
-
-  @media screen and (max-width: 500px) {
-    width: 200px;
-  }
 `;
 
 function Appintro() {

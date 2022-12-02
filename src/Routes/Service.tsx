@@ -37,17 +37,13 @@ const CellImgBox = styled.div`
 
 const CellImg = styled.img`
   width: 320px;
-
-  @media screen and (max-width: 500px) {
-    width: 200px;
-  }
 `;
 
 const MediaBox = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 1100px) {
     display: flex;
     flex-direction: column;
   }
