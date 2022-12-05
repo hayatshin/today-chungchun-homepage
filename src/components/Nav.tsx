@@ -3,11 +3,6 @@ import { motion, useScroll, useAnimation } from "framer-motion";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import colors from "../colors";
-import { generateMedia } from "styled-media-query";
-
-const customoMedia = generateMedia({
-  cellphone: "500px",
-});
 
 const NavWrapper = styled(motion.nav)<{ ychange: number }>`
   z-index: 99;
@@ -22,15 +17,11 @@ const NavWrapper = styled(motion.nav)<{ ychange: number }>`
 `;
 
 const NavBox = styled.div`
-  width: 60%;
+  width: 70%;
   height: 100%;
   top: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
-  ${customoMedia.lessThan("cellphone")`
-    width: 100%
-  `}
 `;
 
 const NavItem = styled.div`
@@ -73,15 +64,11 @@ const NavText = styled.span<NavTextProps>`
       : props.location === "/partner" && props.partnerMatch
       ? "500"
       : "400"};
-
-  ${customoMedia.lessThan("cellphone")`
-  font-size: 16px;
-  `}
 `;
 
 const NavBottom = styled(motion.div)`
   width: 100%;
-  height: 2px;
+  height: 4px;
   background-color: #d35655;
   position: absolute;
   bottom: 0;
@@ -120,9 +107,7 @@ function Nav() {
               textDecoration: "none",
             }}
           >
-            <NavText location={location} homeMatch={homeMatch}>
-              금연온
-            </NavText>
+            <img style={{ width: 120 }} src={require("../assets/logo.png")} />
           </Link>
           {homeMatch && <NavBottom layoutId="nav" />}
         </NavItem>

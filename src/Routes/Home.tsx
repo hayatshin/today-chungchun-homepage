@@ -4,6 +4,7 @@ import { faGooglePlay, faApple } from "@fortawesome/free-brands-svg-icons";
 import colors from "../colors";
 import { Helmet } from "react-helmet-async";
 import YouTube from "react-youtube";
+import hpImage from "../assets/hp_image.jpg";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,7 +16,11 @@ const FirstPage = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
+  background-image: url(${hpImage});
+  background-size: cover;
+  padding-top: 80px;
+  padding-bottom: 200px;
 `;
 
 const FirstBox = styled.div`
@@ -30,10 +35,17 @@ const FirstBox = styled.div`
 `;
 
 const HeaderBigText = styled.span`
-  font-size: 100px;
-  font-weight: 700;
+  font-size: 150px;
+  font-weight: 900;
   color: ${colors.mainColor};
   margin-top: 60px;
+`;
+
+const HeaderDescription = styled.span`
+  font-size: 70px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 20px;
 `;
 
 const ButtonContainer = styled.div`
@@ -48,19 +60,19 @@ const ButtonBox = styled.div`
   width: 180px;
   height: 50px;
   border-radius: 50px;
-  border: 1px solid ${colors.boldGray};
+  border: 1px solid ${colors.mainColor};
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 1px solid ${colors.mainColor};
   cursor: pointer;
   .font {
-    color: ${colors.boldGray};
+    color: ${colors.mainColor};
   }
   &: hover {
-    border: 1px solid ${colors.boldGray};
-    background-color: ${colors.boldGray};
+    border: 1px solid ${colors.mainColor};
+    background-color: ${colors.mainColor};
     color: white;
     span {
       color: white;
@@ -68,6 +80,15 @@ const ButtonBox = styled.div`
     .font {
       color: white;
     }
+  }
+`;
+
+const ButtonText = styled.span`
+  color: ${colors.mainColor};
+  font-size: 20px;
+  font-weight: 300;
+  &: hover {
+    color: white;
   }
 `;
 
@@ -95,15 +116,6 @@ const NewsBox = styled.div`
   }
 `;
 
-const ButtonText = styled.span`
-  color: ${colors.boldGray};
-  font-size: 20px;
-  font-weight: 300;
-  &: hover {
-    color: white;
-  }
-`;
-
 const NewsText = styled.span`
   color: white;
   font-size: 25px;
@@ -113,23 +125,17 @@ const NewsText = styled.span`
   }
 `;
 
-const LogoImage = styled.img`
-  width: 600px;
-`;
-
 const SecondPage = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
 `;
 
 const ThirdPage = styled.div`
   width: 100%;
-  padding-bottom: 400px;
-  position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -150,12 +156,38 @@ const VideoText = styled.span`
   margin-bottom: 20px;
 `;
 
-const CounselorImg = styled.img`
+const FourthPage = styled.div`
+  width: 100%;
   display: flex;
-  justify-self: flex-end;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: ${colors.mainColor};
+  padding: 100px;
+  box-sizing: border-box;
+`;
+
+const DownloadHeader = styled.span`
+  font-size: 60px;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 10px;
+`;
+
+const DownloadDescription = styled.span`
+  font-size: 45px;
+  font-weight: 400;
+  color: white;
+`;
+
+const DownloadLink = styled.div`
+  border: 1px solid white;
+  width: 180px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 `;
 
 function Home() {
@@ -168,10 +200,7 @@ function Home() {
       <Wrapper>
         <FirstPage>
           <FirstBox>
-            <img
-              src={require("../assets/main_title.png")}
-              style={{ width: "75%" }}
-            />
+            <HeaderDescription>금연에 혁신을 더하다</HeaderDescription>
             <HeaderBigText>금연온</HeaderBigText>
             <ButtonContainer>
               <ButtonBox>
@@ -210,12 +239,6 @@ function Home() {
               </ButtonBox>
             </ButtonContainer>
           </FirstBox>
-          <FirstBox>
-            <LogoImage
-              style={{ width: 600 }}
-              src={require("../assets/room.png")}
-            />
-          </FirstBox>
         </FirstPage>
         <SecondPage>
           <img
@@ -225,7 +248,7 @@ function Home() {
           <NewsBox>
             <a
               style={{ textDecoration: "none" }}
-              href="https://search.naver.com/search.naver?sm=tab_hty.top&where=news&query=%EA%B8%88%EC%97%B0%EC%98%A8+%2B+%EB%AA%A8%EB%B0%94%EC%9D%BC+%2B+%ED%81%B4%EB%A6%AC%EB%8B%89+%2B+%EC%95%B1&oquery=%EA%B8%88%EC%97%B0%EC%98%A8+%2B+%EB%AA%A8%EB%B0%94%EC%9D%BC+%2B+%ED%81%B4%EB%A6%AC%EB%8B%89&tqi=hGB6%2Blprvmsssc3hkpRsssssslR-182052"
+              href="https://search.naver.com/search.naver?where=news&sm=tab_pge&query=%EA%B8%88%EC%97%B0%EC%98%A8%20%7C%20%EA%B8%88%EC%97%B0ON%20%22%EB%B9%84%EB%8C%80%EB%A9%B4%20%EA%B8%88%EC%97%B0%ED%81%B4%EB%A6%AC%EB%8B%89%22&sort=1&photo=0&field=0&pd=0&ds=&de=&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:dd,p:all,a:all&start=1"
               target={"_blank"}
             >
               <NewsText>네이버 기사 모아보기</NewsText>
@@ -241,8 +264,8 @@ function Home() {
           <YouTube
             videoId={"-4JFlQQndDE"}
             opts={{
-              width: "500",
-              height: "300",
+              width: "800",
+              height: "500",
 
               playerVars: {
                 autoplay: 1, //자동재생 O
@@ -254,11 +277,74 @@ function Home() {
               e.target.stopVideo(0);
             }}
           />
-          <CounselorImg
-            src={require("../assets/counselor.png")}
-            style={{ width: "450px", height: "450px", alignSelf: "flex-end" }}
-          />
         </ThirdPage>
+        <FourthPage>
+          <div></div>
+          <div
+            style={{
+              width: 120,
+              height: 120,
+              borderRadius: 20,
+              backgroundColor: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: 50,
+            }}
+          >
+            <img
+              style={{ width: 100, height: 100 }}
+              src={require("../assets/meta_img.png")}
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginRight: 100,
+            }}
+          >
+            <DownloadHeader>금연온</DownloadHeader>
+            <DownloadDescription>바로 시작하세요.</DownloadDescription>
+          </div>
+          <DownloadLink>
+            <a
+              style={{ textDecoration: "none" }}
+              href="https://play.google.com/store/apps/details?id=kr.no_smoking"
+              target={"_blank"}
+            >
+              <FontAwesomeIcon
+                className="font"
+                icon={faGooglePlay}
+                style={{
+                  fontSize: 25,
+                  marginRight: 10,
+                  color: "white",
+                }}
+              />
+              <span style={{ color: "white" }}>Google Play</span>
+            </a>
+          </DownloadLink>
+          <div style={{ width: 50 }}></div>
+          <DownloadLink>
+            <a
+              style={{ textDecoration: "none" }}
+              href="https://apps.apple.com/kr/app/%EA%B8%88%EC%97%B0on-%EB%8B%B9%EC%8B%A0%EC%9D%98-%EB%93%A0%EB%93%A0%ED%95%9C-%EA%B8%88%EC%97%B0%ED%8C%8C%ED%8A%B8%EB%84%88-%EB%B9%84%EB%8C%80%EB%A9%B4-%ED%81%B4%EB%A6%AC%EB%8B%89-%EA%B8%88%EC%97%B0%EC%98%A8/id1542173611"
+              target={"_blank"}
+            >
+              <FontAwesomeIcon
+                className="font"
+                icon={faApple}
+                style={{
+                  fontSize: 25,
+                  marginRight: 10,
+                  color: "white",
+                }}
+              />
+              <span style={{ color: "white" }}>App Store</span>
+            </a>
+          </DownloadLink>
+        </FourthPage>
       </Wrapper>
     </>
   );

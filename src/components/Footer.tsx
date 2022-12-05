@@ -8,7 +8,8 @@ const FooterWrapper = styled.div`
   flex-direction: column;
   padding-top: 50px;
   padding-bottom: 20px;
-  padding-left: 50px;
+  padding-left: 40px;
+  box-sizing: border-box;
 `;
 
 const FooterText = styled.span`
