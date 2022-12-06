@@ -35,55 +35,32 @@ const NavItem = styled.div`
   cursor: pointer;
 `;
 
-interface TextBar {
-  ychange: number;
-  homeMatch?: boolean;
-}
-
-const NewsText = styled.span<TextBar>`
+const NewsText = styled.span<{ page: string }>`
   font-size: 20px;
   color: ${(props) =>
-    props.ychange >= 702 && props.ychange < 2063 && props.homeMatch
-      ? colors.mainColor
-      : colors.boldGray};
-  font-weight: ${(props) =>
-    props.ychange >= 702 && props.ychange < 2063 && props.homeMatch
-      ? "500"
-      : "400"};
+    props.page === "news" ? colors.mainColor : colors.boldGray};
+  font-weight: ${(props) => (props.page === "home" ? "500" : "400")};
 `;
 
-const ServiceText = styled.span<TextBar>`
+const ServiceText = styled.span<{ page: string }>`
   font-size: 20px;
   color: ${(props) =>
-    props.ychange >= 2063 && props.ychange < 5234 && props.homeMatch
-      ? colors.mainColor
-      : colors.boldGray};
-  font-weight: ${(props) =>
-    props.ychange >= 2063 && props.ychange < 5234 && props.homeMatch
-      ? "500"
-      : "400"};
+    props.page === "service" ? colors.mainColor : colors.boldGray};
+  font-weight: ${(props) => (props.page === "service" ? "500" : "400")};
 `;
 
-const AppText = styled.span<TextBar>`
+const AppText = styled.span<{ page: string }>`
   font-size: 20px;
   color: ${(props) =>
-    props.ychange >= 5234 && props.ychange < 10336 && props.homeMatch
-      ? colors.mainColor
-      : colors.boldGray};
-  font-weight: ${(props) =>
-    props.ychange >= 5234 && props.ychange < 10336 && props.homeMatch
-      ? "500"
-      : "400"};
+    props.page === "app" ? colors.mainColor : colors.boldGray};
+  font-weight: ${(props) => (props.page === "app" ? "500" : "400")};
 `;
 
-const PartnerText = styled.span<{ location: string; partnerMatch?: boolean }>`
+const PartnerText = styled.span<{ page: string }>`
   color: ${(props) =>
-    props.location === "/partner" && props.partnerMatch
-      ? colors.mainColor
-      : colors.boldGray};
+    props.page === "partner" ? colors.mainColor : colors.boldGray};
   font-size: 20px;
-  font-weight: ${(props) =>
-    props.location === "/partner" && props.partnerMatch ? "500" : "400"};
+  font-weight: ${(props) => (props.page === "partner" ? "500" : "400")};
 `;
 
 const NavBottom = styled(motion.div)`
@@ -96,14 +73,11 @@ const NavBottom = styled(motion.div)`
 
 function Nav() {
   const navigate = useNavigate();
-  const location = useLocation().pathname;
-  const homeMatch = useMatch("/")?.pattern.end;
-  const serviceMatch = useMatch("/service")?.pattern.end;
-  const appMatch = useMatch("/app")?.pattern.end;
-  const partnerMatch = useMatch("/partner")?.pattern.end;
   const { scrollY } = useScroll();
   const [ychange, setYchange] = useState(0);
   const navAnimation = useAnimation();
+  const [page, setPage] = useState("home");
+
   useEffect(() => {
     scrollY.onChange(() => {
       console.log("y축", scrollY.get());
@@ -119,74 +93,78 @@ function Nav() {
       }
     });
   }, [scrollY]);
+
+  useEffect(() => {
+    if (page === "home") {
+      navigate("/");
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    } else if (page === "news") {
+      navigate("/");
+      setTimeout(() => {
+        window.scrollTo({ top: 702, behavior: "smooth" });
+      });
+    } else if (page === "service") {
+      navigate("/");
+      setTimeout(() => {
+        window.scrollTo({ top: 2063, behavior: "smooth" });
+      });
+    } else if (page === "app") {
+      navigate("/");
+      setTimeout(() => {
+        window.scrollTo({ top: 5234, behavior: "smooth" });
+      });
+    } else if (page === "partner") {
+      navigate("/partner");
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  }, [page]);
   return (
     <NavWrapper ychange={ychange} animate={navAnimation}>
       <NavBox>
         <NavItem
           onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            });
+            setPage("home");
           }}
         >
           <img style={{ width: 120 }} src={require("../assets/logo.png")} />
-          {ychange < 702 && homeMatch ? <NavBottom layoutId="nav" /> : null}
+          {page === "home" && <NavBottom layoutId="nav" />}
         </NavItem>
         <NavItem
           onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: 720, behavior: "smooth" });
-            });
+            setPage("news");
           }}
         >
-          <NewsText ychange={ychange} homeMatch={homeMatch}>
-            활용 사례
-          </NewsText>
-          {ychange >= 702 && ychange < 2063 && homeMatch ? <NavBottom /> : null}
+          <NewsText page={page}>활용 사례</NewsText>
+          {page === "news" ? <NavBottom /> : null}
         </NavItem>
         <NavItem
           onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: 2063, behavior: "smooth" });
-            });
+            setPage("service");
           }}
         >
-          <ServiceText ychange={ychange} homeMatch={homeMatch}>
-            서비스 소개
-          </ServiceText>
-          {ychange >= 2063 && ychange < 5234 && homeMatch ? (
-            <NavBottom />
-          ) : null}
+          <ServiceText page={page}>서비스 소개</ServiceText>
+          {page === "service" && <NavBottom />}
         </NavItem>
         <NavItem
           onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: 5234, behavior: "smooth" });
-            });
+            setPage("app");
           }}
         >
-          <AppText ychange={ychange} homeMatch={homeMatch}>
-            앱 소개
-          </AppText>
-          {ychange >= 5234 && ychange < 10336 && homeMatch ? (
-            <NavBottom />
-          ) : null}
+          <AppText page={page}>앱 소개</AppText>
+          {page === "app" && <NavBottom />}
         </NavItem>
 
         <NavItem
           onClick={() => {
-            navigate("/partner");
-            window.scrollTo(0, 0);
+            setPage("partner");
           }}
         >
-          <PartnerText location={location} partnerMatch={partnerMatch}>
-            계약 문의
-          </PartnerText>
-          {partnerMatch && <NavBottom />}
+          <PartnerText page={page}>계약 문의</PartnerText>
+          {page === "partner" && <NavBottom />}
         </NavItem>
       </NavBox>
     </NavWrapper>
