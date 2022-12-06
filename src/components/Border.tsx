@@ -1,16 +1,22 @@
 import colors from "../colors";
+import styled from "styled-components";
+
+const BorderBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 1100px) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+`;
 
 function Border() {
   return (
-    <div
-      style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        marginTop: 50,
-        marginBottom: 50,
-      }}
-    >
+    <BorderBox>
       <div
         style={{
           width: "70%",
@@ -20,7 +26,7 @@ function Border() {
           justifyItems: "center",
         }}
       ></div>
-    </div>
+    </BorderBox>
   );
 }
 
