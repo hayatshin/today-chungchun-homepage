@@ -17,11 +17,11 @@ const NavWrapper = styled(motion.nav)<{ ychange: number }>`
 `;
 
 const NavBox = styled.div`
-  width: 70%;
+  width: 80%;
   height: 100%;
   top: 0;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 `;
 
 const NavItem = styled.div`
@@ -40,6 +40,18 @@ interface MunuTextForm {
   ychange: number;
   location: string;
 }
+
+const HomeText = styled.span<MunuTextForm>`
+  font-size: 20px;
+  color: ${(props) =>
+    props.page === "news" || (props.location === "/" && props.ychange < 702)
+      ? colors.mainColor
+      : colors.boldGray};
+  font-weight: ${(props) =>
+    props.page === "news" || (props.location === "/" && props.ychange < 702)
+      ? "500"
+      : "400"};
+`;
 
 const NewsText = styled.span<MunuTextForm>`
   font-size: 20px;
@@ -130,6 +142,17 @@ function Nav() {
   return (
     <NavWrapper ychange={ychange} animate={navAnimation}>
       <NavBox>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img style={{ width: 120 }} src={require("../assets/logo.png")} />
+        </div>
+
         <NavItem
           onClick={() => {
             navigate("/");
@@ -138,9 +161,10 @@ function Nav() {
             });
           }}
         >
-          <img style={{ width: 120 }} src={require("../assets/logo.png")} />
-          {page === "home" ||
-            (location === "/" && ychange < 702 && <NavBottom />)}
+          <HomeText page={page} ychange={ychange} location={location}>
+            금연온
+          </HomeText>
+          {location === "/" && ychange < 702 ? <NavBottom /> : null}
         </NavItem>
         <NavItem
           onClick={() => {

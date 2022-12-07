@@ -407,13 +407,19 @@ function Home() {
                 관리자는 인터넷상으로 서류를 열람하실 수 있습니다.
               </CellText>
             </ContentBox>
-            <CellImgBox>
+            <CellImgBox
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <CellImg src={require("../assets/corefn/mission1.png")} />
               <CellImg src={require("../assets/corefn/mission2.png")} />
               <CellImg src={require("../assets/corefn/mission3.png")} />
             </CellImgBox>
             <img
-              style={{ width: 900, marginLeft: 30 }}
+              style={{ width: 900 }}
               src={require("../assets/corefn/mission4.png")}
             />
           </CellWrapper>
