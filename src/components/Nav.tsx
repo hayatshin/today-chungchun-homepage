@@ -62,8 +62,7 @@ const NewsText = styled.span<MunuTextForm>`
       : colors.boldGray};
   font-weight: ${(props) =>
     props.page === "news" ||
-    (props.location === "/" && props.ychange >= 702) ||
-    (props.location === "/" && props.ychange < 2063)
+    (props.location === "/" && props.ychange >= 702 && props.ychange < 2063)
       ? "500"
       : "400"};
 `;
@@ -77,8 +76,7 @@ const ServiceText = styled.span<MunuTextForm>`
       : colors.boldGray};
   font-weight: ${(props) =>
     props.page === "service" ||
-    (props.location === "/" && props.ychange >= 2063) ||
-    (props.location === "/" && props.ychange < 5234)
+    (props.location === "/" && props.ychange >= 2063 && props.ychange < 5234)
       ? "500"
       : "400"};
 `;
@@ -92,8 +90,7 @@ const AppText = styled.span<MunuTextForm>`
       : colors.boldGray};
   font-weight: ${(props) =>
     props.page === "app" ||
-    (props.location === "/" && props.ychange >= 5234) ||
-    (props.location === "/" && props.ychange < 10336)
+    (props.location === "/" && props.ychange >= 5234 && props.ychange < 10336)
       ? "500"
       : "400"};
 `;
