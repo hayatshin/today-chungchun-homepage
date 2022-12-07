@@ -7,11 +7,6 @@ const BorderBox = styled.div`
   justify-content: center;
   margin-top: 50px;
   margin-bottom: 50px;
-
-  @media screen and (max-width: 1100px) {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
 `;
 
 function Border() {

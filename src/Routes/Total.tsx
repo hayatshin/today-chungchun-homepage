@@ -7,7 +7,6 @@ import YouTube from "react-youtube";
 import hpImage from "../assets/hp_image.jpg";
 import Border from "../components/Border";
 import ReactHelmet from "../components/ReactHelmet";
-import { Route } from "react-router-dom";
 
 // 활용사례 702, 서비스소개 2063, 앱소개 5234, 다운로드 10336
 
@@ -302,7 +301,7 @@ const CellBox = styled.div`
   }
 `;
 
-function Home() {
+function Total() {
   return (
     <>
       <Helmet>
@@ -354,47 +353,45 @@ function Home() {
           </FirstBox>
         </FirstPage>
         {/* 활용 사례 */}
-        <div className="news">
-          <SecondPage>
-            <img
-              src={require("../assets/nosmoking_news.png")}
-              style={{ width: 700, height: 400 }}
-            />
-            <NewsBox>
-              <a
-                style={{ textDecoration: "none" }}
-                href="https://search.naver.com/search.naver?where=news&sm=tab_pge&query=%EA%B8%88%EC%97%B0%EC%98%A8%20%7C%20%EA%B8%88%EC%97%B0ON%20%22%EB%B9%84%EB%8C%80%EB%A9%B4%20%EA%B8%88%EC%97%B0%ED%81%B4%EB%A6%AC%EB%8B%89%22&sort=1&photo=0&field=0&pd=0&ds=&de=&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:dd,p:all,a:all&start=1"
-                target={"_blank"}
-              >
-                <NewsText>네이버 기사 모아보기</NewsText>
-              </a>
-            </NewsBox>
-          </SecondPage>
-          <ThirdPage>
-            <VideoBox>
-              <VideoText>광주시보건소,</VideoText>
-              <VideoText>금연온을 이용한</VideoText>
-              <VideoText>금연클리닉 홍보 영상</VideoText>
-            </VideoBox>
-            <YouTube
-              videoId={"-4JFlQQndDE"}
-              opts={{
-                width: "800",
-                height: "500",
-                playerVars: {
-                  autoplay: 1, //자동재생 O
-                  rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
-                  modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
-                },
-              }}
-              onEnd={(e) => {
-                e.target.stopVideo(0);
-              }}
-            />
-          </ThirdPage>
-        </div>
+        <SecondPage>
+          <img
+            src={require("../assets/nosmoking_news.png")}
+            style={{ width: 700, height: 400 }}
+          />
+          <NewsBox>
+            <a
+              style={{ textDecoration: "none" }}
+              href="https://search.naver.com/search.naver?where=news&sm=tab_pge&query=%EA%B8%88%EC%97%B0%EC%98%A8%20%7C%20%EA%B8%88%EC%97%B0ON%20%22%EB%B9%84%EB%8C%80%EB%A9%B4%20%EA%B8%88%EC%97%B0%ED%81%B4%EB%A6%AC%EB%8B%89%22&sort=1&photo=0&field=0&pd=0&ds=&de=&mynews=0&office_type=0&office_section_code=0&news_office_checked=&nso=so:dd,p:all,a:all&start=1"
+              target={"_blank"}
+            >
+              <NewsText>네이버 기사 모아보기</NewsText>
+            </a>
+          </NewsBox>
+        </SecondPage>
+        <ThirdPage>
+          <VideoBox>
+            <VideoText>광주시보건소,</VideoText>
+            <VideoText>금연온을 이용한</VideoText>
+            <VideoText>금연클리닉 홍보 영상</VideoText>
+          </VideoBox>
+          <YouTube
+            videoId={"-4JFlQQndDE"}
+            opts={{
+              width: "800",
+              height: "500",
+              playerVars: {
+                autoplay: 1, //자동재생 O
+                rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
+                modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
+              },
+            }}
+            onEnd={(e) => {
+              e.target.stopVideo(0);
+            }}
+          />
+        </ThirdPage>
         {/* 서비스 안내 */}
-        <div className="service" style={{ backgroundColor: "#F6F7F9" }}>
+        <div style={{ backgroundColor: "#F6F7F9" }}>
           {/* 금연클리닉 */}
           <CellWrapper style={{ alignSelf: "flex-start", marginTop: 50 }}>
             <ContentBox>
@@ -466,7 +463,7 @@ function Home() {
           </CellWrapper>
         </div>
         {/* 앱 소개 */}
-        <div className="app">
+        <div>
           {/* 금연클리닉 */}
           <CellWrapper
             style={{
@@ -651,80 +648,78 @@ function Home() {
           </CellWrapper>
         </div>
         {/* 다운로드 */}
-        <div className="download">
-          <FourthPage>
-            <div></div>
-            <div
-              style={{
-                width: 120,
-                height: 120,
-                borderRadius: 20,
-                backgroundColor: "white",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginRight: 50,
-              }}
-            >
-              <img
-                style={{ width: 100, height: 100 }}
-                src={require("../assets/meta_img.png")}
-              />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginRight: 100,
-              }}
-            >
-              <DownloadHeader>금연온</DownloadHeader>
-              <DownloadDescription>바로 시작하세요.</DownloadDescription>
-            </div>
-            <DownloadBox>
-              <DownloadLink>
-                <a
-                  style={{ textDecoration: "none" }}
-                  href="https://play.google.com/store/apps/details?id=kr.no_smoking"
-                  target={"_blank"}
-                >
-                  <FontAwesomeIcon
-                    className="font"
-                    icon={faGooglePlay}
-                    style={{
-                      fontSize: 25,
-                      marginRight: 10,
-                      color: "white",
-                    }}
-                  />
-                  <span style={{ color: "white" }}>Google Play</span>
-                </a>
-              </DownloadLink>
-              <div style={{ width: 50 }}></div>
-              <DownloadLink>
-                <a
-                  style={{ textDecoration: "none" }}
-                  href="https://apps.apple.com/kr/app/%EA%B8%88%EC%97%B0on-%EB%8B%B9%EC%8B%A0%EC%9D%98-%EB%93%A0%EB%93%A0%ED%95%9C-%EA%B8%88%EC%97%B0%ED%8C%8C%ED%8A%B8%EB%84%88-%EB%B9%84%EB%8C%80%EB%A9%B4-%ED%81%B4%EB%A6%AC%EB%8B%89-%EA%B8%88%EC%97%B0%EC%98%A8/id1542173611"
-                  target={"_blank"}
-                >
-                  <FontAwesomeIcon
-                    className="font"
-                    icon={faApple}
-                    style={{
-                      fontSize: 25,
-                      marginRight: 10,
-                      color: "white",
-                    }}
-                  />
-                  <span style={{ color: "white" }}>App Store</span>
-                </a>
-              </DownloadLink>
-            </DownloadBox>
-          </FourthPage>
-        </div>
+        <FourthPage>
+          <div></div>
+          <div
+            style={{
+              width: 120,
+              height: 120,
+              borderRadius: 20,
+              backgroundColor: "white",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              marginRight: 50,
+            }}
+          >
+            <img
+              style={{ width: 100, height: 100 }}
+              src={require("../assets/meta_img.png")}
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginRight: 100,
+            }}
+          >
+            <DownloadHeader>금연온</DownloadHeader>
+            <DownloadDescription>바로 시작하세요.</DownloadDescription>
+          </div>
+          <DownloadBox>
+            <DownloadLink>
+              <a
+                style={{ textDecoration: "none" }}
+                href="https://play.google.com/store/apps/details?id=kr.no_smoking"
+                target={"_blank"}
+              >
+                <FontAwesomeIcon
+                  className="font"
+                  icon={faGooglePlay}
+                  style={{
+                    fontSize: 25,
+                    marginRight: 10,
+                    color: "white",
+                  }}
+                />
+                <span style={{ color: "white" }}>Google Play</span>
+              </a>
+            </DownloadLink>
+            <div style={{ width: 50 }}></div>
+            <DownloadLink>
+              <a
+                style={{ textDecoration: "none" }}
+                href="https://apps.apple.com/kr/app/%EA%B8%88%EC%97%B0on-%EB%8B%B9%EC%8B%A0%EC%9D%98-%EB%93%A0%EB%93%A0%ED%95%9C-%EA%B8%88%EC%97%B0%ED%8C%8C%ED%8A%B8%EB%84%88-%EB%B9%84%EB%8C%80%EB%A9%B4-%ED%81%B4%EB%A6%AC%EB%8B%89-%EA%B8%88%EC%97%B0%EC%98%A8/id1542173611"
+                target={"_blank"}
+              >
+                <FontAwesomeIcon
+                  className="font"
+                  icon={faApple}
+                  style={{
+                    fontSize: 25,
+                    marginRight: 10,
+                    color: "white",
+                  }}
+                />
+                <span style={{ color: "white" }}>App Store</span>
+              </a>
+            </DownloadLink>
+          </DownloadBox>
+        </FourthPage>
       </Wrapper>
     </>
   );
 }
 
-export default Home;
+export default Total;

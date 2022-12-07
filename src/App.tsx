@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Appintro from "./Routes/Appintro";
 import Home from "./Routes/Home";
 import Mail from "./Routes/Mail";
+import News from "./Routes/News";
 import Partner from "./Routes/Partner";
 import Service from "./Routes/Service";
 
@@ -54,10 +55,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/service" element={<Service />} />
-          <Route path="/app" element={<Appintro />} />
           <Route path="/partner" element={<Partner />} />
-          <Route path="/mail" element={<Mail />} />
         </Routes>
         <Footer />
       </Router>
