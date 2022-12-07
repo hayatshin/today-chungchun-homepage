@@ -140,13 +140,13 @@ function Nav() {
         >
           <img style={{ width: 120 }} src={require("../assets/logo.png")} />
           {page === "home" ||
-            (location === "/" && ychange < 702 && <NavBottom layoutId="nav" />)}
+            (location === "/" && ychange < 702 && <NavBottom />)}
         </NavItem>
         <NavItem
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: 702, behavior: "smooth" });
+              window.scrollTo({ top: 703, behavior: "smooth" });
             });
           }}
         >
@@ -162,7 +162,7 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: 2063, behavior: "smooth" });
+              window.scrollTo({ top: 2064, behavior: "smooth" });
             });
           }}
         >
@@ -178,7 +178,7 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: 5234, behavior: "smooth" });
+              window.scrollTo({ top: 5235, behavior: "smooth" });
             });
           }}
         >
