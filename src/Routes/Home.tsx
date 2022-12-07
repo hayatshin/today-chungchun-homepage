@@ -8,6 +8,8 @@ import hpImage from "../assets/hp_image.jpg";
 import Border from "../components/Border";
 import ReactHelmet from "../components/ReactHelmet";
 
+// 활용사례 702, 서비스소개 2063, 앱소개 5234, 다운로드 10336
+
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
