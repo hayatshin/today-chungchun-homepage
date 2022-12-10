@@ -13,6 +13,10 @@ function App() {
   return (
     <>
       <Helmet>
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"
+        />
         <meta property="og:type" content="website" />
         <meta
           name="keywords"
