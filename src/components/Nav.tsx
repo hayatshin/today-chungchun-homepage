@@ -118,11 +118,8 @@ function Nav() {
   const navAnimation = useAnimation();
   const [page, setPage] = useState("home");
 
-  console.log(location, page, ychange);
-
   useEffect(() => {
     scrollY.onChange(() => {
-      console.log("y축", scrollY.get(), location, page);
       setYchange(scrollY.get());
       if (scrollY.get() > 0 && scrollY.get() < 500) {
         navAnimation.start({

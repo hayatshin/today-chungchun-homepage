@@ -2,22 +2,19 @@ import { Helmet } from "react-helmet-async";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import Appintro from "./Routes/Appintro";
 import Home from "./Routes/Home";
-import Mail from "./Routes/Mail";
-import News from "./Routes/News";
 import Partner from "./Routes/Partner";
-import Service from "./Routes/Service";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 function App() {
   return (
     <>
       <Helmet>
         <meta
-          http-equiv="content-security-policy"
-          content="default-src 'none'; script-src 'self';
-  connect-src 'self'; img-src 'self';
-  style-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=';"
+          http-equiv="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;
+          style-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=';   style-src 'self' 'sha256-MBVp6JYxbC/wICelYC6eULCRpgi9kGezXXSaq/TS2+I=';"
         />
         <meta property="og:type" content="website" />
         <meta
