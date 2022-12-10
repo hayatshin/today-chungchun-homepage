@@ -14,8 +14,10 @@ function App() {
     <>
       <Helmet>
         <meta
-          http-equiv="Content-Security-Policy"
-          content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'"
+          http-equiv="content-security-policy"
+          content="default-src 'none'; script-src 'self';
+  connect-src 'self'; img-src 'self';
+  style-src 'self' 'sha256-CwE3Bg0VYQOIdNAkbB/Btdkhul49qZuwgNCMPgNY5zw=';"
         />
         <meta property="og:type" content="website" />
         <meta
