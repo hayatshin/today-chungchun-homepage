@@ -16,6 +16,10 @@ function App() {
           http-equiv="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;
           style-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=';   style-src 'self' 'sha256-MBVp6JYxbC/wICelYC6eULCRpgi9kGezXXSaq/TS2+I=';"
         />
+        <meta
+          name="naver-site-verification"
+          content="4d572be65d63fecb8b9797b34651e00571722714"
+        />
         <meta property="og:type" content="website" />
         <meta
           name="keywords"
