@@ -30,19 +30,16 @@ function App() {
           금연병원,
           rnadysdgs"
         />
-        <meta
-          name="title"
-          content="금연 | 대한민국 | Untact시대의 비대면 금연클리닉, 금연온"
-        />
+        <meta name="title" content="금연온 | 모바일 금연클리닉 금연ON" />
         <meta
           name="description"
-          content="비대면 금연클리닉 플랫폼 금연온으로 효율적인 금연 사업을 시작해보세요."
+          content="비대면 금연 치료 플랫폼 금연온으로 금연 사업의 혁신 우수사례를 만들어보세요."
         />
-        <meta property="og:site_name" content="금연온" />
         <meta
-          property="og:title"
-          content="금연 | 대한민국 | Untact시대의 비대면 금연클리닉, 금연온"
+          property="og:site_name"
+          content="금연온 | 모바일 금연클리닉 금연ON"
         />
+        <meta property="og:title" content="금연온 | 모바일 금연클리닉 금연ON" />
         <meta property="og:image" content="../assets/room.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
@@ -52,7 +49,7 @@ function App() {
         <meta property="og:locale" content="ko_KR" />
         <meta
           name="og:description"
-          content="비대면 금연클리닉 플랫폼 금연온으로 효율적인 금연 사업을 시작해보세요."
+          content="비대면 금연 치료 플랫폼 금연온으로 금연 사업의 혁신 우수사례를 만들어보세요."
         />
         <meta name="og:url" content="https://www.no-smoking.kr/" />
         <link rel="apple-touch-icon" href="../assets/meta_img.png" />
