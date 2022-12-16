@@ -307,7 +307,7 @@ function Home() {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>금연온</title>
+        <title>금연온 | 모바일 금연클리닉 금연ON</title>
       </Helmet>
 
       <Wrapper>
