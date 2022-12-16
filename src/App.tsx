@@ -30,6 +30,7 @@ function App() {
           금연병원,
           rnadysdgs"
         />
+        <title>금연온 | 모바일 금연클리닉 금연ON</title>
         <meta name="title" content="금연온 | 모바일 금연클리닉 금연ON" />
         <meta
           name="description"
