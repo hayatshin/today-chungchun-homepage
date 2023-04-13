@@ -39,16 +39,20 @@ interface MunuTextForm {
   page: string;
   ychange: number;
   location: string;
+  firstY: number;
+  secondY: number;
 }
 
 const HomeText = styled.span<MunuTextForm>`
   font-size: 20px;
   color: ${(props) =>
-    props.page === "news" || (props.location === "/" && props.ychange < 880)
+    props.page === "news" ||
+    (props.location === "/" && props.ychange < props.firstY)
       ? colors.mainColor
       : colors.boldGray};
   font-weight: ${(props) =>
-    props.page === "news" || (props.location === "/" && props.ychange < 880)
+    props.page === "news" ||
+    (props.location === "/" && props.ychange < props.firstY)
       ? "500"
       : "400"};
 `;
@@ -57,12 +61,16 @@ const ServiceText = styled.span<MunuTextForm>`
   font-size: 20px;
   color: ${(props) =>
     props.page === "service" ||
-    (props.location === "/" && props.ychange >= 880 && props.ychange < 2697)
+    (props.location === "/" &&
+      props.ychange >= props.firstY &&
+      props.ychange < props.secondY)
       ? colors.mainColor
       : colors.boldGray};
   font-weight: ${(props) =>
     props.page === "service" ||
-    (props.location === "/" && props.ychange >= 880 && props.ychange < 2697)
+    (props.location === "/" &&
+      props.ychange >= props.firstY &&
+      props.ychange < props.secondY)
       ? "500"
       : "400"};
 `;
@@ -70,11 +78,13 @@ const ServiceText = styled.span<MunuTextForm>`
 const AppText = styled.span<MunuTextForm>`
   font-size: 20px;
   color: ${(props) =>
-    props.page === "app" || (props.location === "/" && props.ychange >= 2697)
+    props.page === "app" ||
+    (props.location === "/" && props.ychange >= props.secondY)
       ? colors.mainColor
       : colors.boldGray};
   font-weight: ${(props) =>
-    props.page === "app" || (props.location === "/" && props.ychange >= 2697)
+    props.page === "app" ||
+    (props.location === "/" && props.ychange >= props.secondY)
       ? "500"
       : "400"};
 `;
@@ -95,12 +105,23 @@ const NavBottom = styled(motion.div)`
 `;
 
 function Nav() {
+  const [screen, setScreen] = useState(window.innerWidth);
+
   const location = useLocation().pathname;
   const navigate = useNavigate();
   const { scrollY } = useScroll();
   const [ychange, setYchange] = useState(0);
   const navAnimation = useAnimation();
   const [page, setPage] = useState("home");
+  const [firstY, setFirstY] = useState(0);
+  const [secondY, setSecondY] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setScreen(window.innerWidth));
+    return () => {
+      window.removeEventListener("resize", () => setScreen(window.innerWidth));
+    };
+  }, []);
 
   useEffect(() => {
     scrollY.onChange(() => {
@@ -117,6 +138,21 @@ function Nav() {
       }
     });
   }, [scrollY]);
+
+  useEffect(() => {
+    console.log(`${screen} / ${firstY} / ${secondY}`);
+    if (screen < 1000) {
+      // 모바일
+      setFirstY(860);
+      setSecondY(2139);
+    } else {
+      // 웹
+      setFirstY(880);
+      setSecondY(2697);
+    }
+  }, [screen]);
+
+  useEffect(() => {}, [firstY, secondY]);
 
   return (
     <NavWrapper ychange={ychange} animate={navAnimation}>
@@ -143,24 +179,36 @@ function Nav() {
             });
           }}
         >
-          <HomeText page={page} ychange={ychange} location={location}>
+          <HomeText
+            page={page}
+            ychange={ychange}
+            location={location}
+            firstY={firstY}
+            secondY={secondY}
+          >
             오늘도청춘
           </HomeText>
-          {location === "/" && ychange < 880 ? <NavBottom /> : null}
+          {location === "/" && ychange < firstY ? <NavBottom /> : null}
         </NavItem>
         <NavItem
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: 880, behavior: "smooth" });
+              window.scrollTo({ top: firstY, behavior: "smooth" });
             });
           }}
         >
-          <ServiceText page={page} ychange={ychange} location={location}>
+          <ServiceText
+            page={page}
+            ychange={ychange}
+            location={location}
+            firstY={firstY}
+            secondY={secondY}
+          >
             서비스 소개
           </ServiceText>
           {page === "service" ||
-          (location === "/" && ychange >= 880 && ychange < 2697) ? (
+          (location === "/" && ychange >= firstY && ychange < secondY) ? (
             <NavBottom />
           ) : null}
         </NavItem>
@@ -168,14 +216,20 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: 2697, behavior: "smooth" });
+              window.scrollTo({ top: secondY, behavior: "smooth" });
             });
           }}
         >
-          <AppText page={page} ychange={ychange} location={location}>
+          <AppText
+            page={page}
+            ychange={ychange}
+            location={location}
+            firstY={firstY}
+            secondY={secondY}
+          >
             앱 소개
           </AppText>
-          {page === "app" || (location === "/" && ychange >= 2697) ? (
+          {page === "app" || (location === "/" && ychange >= secondY) ? (
             <NavBottom />
           ) : null}
         </NavItem>
@@ -188,7 +242,13 @@ function Nav() {
             });
           }}
         >
-          <PartnerText page={page} ychange={ychange} location={location}>
+          <PartnerText
+            page={page}
+            ychange={ychange}
+            location={location}
+            firstY={firstY}
+            secondY={secondY}
+          >
             계약 문의
           </PartnerText>
           {location === "/partner" && <NavBottom />}

@@ -52,6 +52,10 @@ const HeaderBigText = styled.span`
   color: white;
   -webkit-text-stroke: 5px ${colors.boldGray};
   margin-top: 60px;
+
+  @media screen and (max-width: 1100px) {
+    font-size: 100px;
+  }
 `;
 
 const HeaderDescription = styled.span`
