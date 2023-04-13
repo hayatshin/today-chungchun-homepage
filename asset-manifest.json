@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/today-chungchun-homepage/static/css/main.1b97f976.css",
+    "main.js": "/today-chungchun-homepage/static/js/main.866dfbfa.js",
+    "static/media/service.png": "/today-chungchun-homepage/static/media/service.c0c3d59260453d22a0e1.png",
+    "static/media/main-back.png": "/today-chungchun-homepage/static/media/main-back.eee29033a6e5e2fd1dd5.png",
+    "static/media/screen4.png": "/today-chungchun-homepage/static/media/screen4.97d33b028885b6080d2e.png",
+    "static/media/screen1.png": "/today-chungchun-homepage/static/media/screen1.4f295fbbd5ae925be3a3.png",
+    "static/media/screen2.png": "/today-chungchun-homepage/static/media/screen2.029201a2fa146c72f2f1.png",
+    "static/media/screen3.png": "/today-chungchun-homepage/static/media/screen3.41493d339137836de990.png",
+    "static/media/white-icon.png": "/today-chungchun-homepage/static/media/white-icon.65d9f348f44681537049.png",
+    "index.html": "/today-chungchun-homepage/index.html",
+    "main.1b97f976.css.map": "/today-chungchun-homepage/static/css/main.1b97f976.css.map",
+    "main.866dfbfa.js.map": "/today-chungchun-homepage/static/js/main.866dfbfa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b97f976.css",
+    "static/js/main.866dfbfa.js"
+  ]
+}
