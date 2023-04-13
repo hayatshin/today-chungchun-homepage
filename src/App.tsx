@@ -16,44 +16,33 @@ function App() {
           http-equiv="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;
           style-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=';   style-src 'self' 'sha256-MBVp6JYxbC/wICelYC6eULCRpgi9kGezXXSaq/TS2+I=';"
         />
-        <meta
-          name="naver-site-verification"
-          content="4d572be65d63fecb8b9797b34651e00571722714"
-        />
         <meta property="og:type" content="website" />
-        <meta
-          name="keywords"
-          content="금연온, 금연ON, 비대면, 금연클리닉, 보건소, 금연, 노담, 금연사업, 금연앱,
-          금연어플,
-          금연플랫폼,
-          금연치료,
-          금연병원,
-          rnadysdgs"
-        />
-        <title>금연온 | 모바일 금연클리닉 금연ON</title>
-        <meta name="title" content="금연온 | 모바일 금연클리닉 금연ON" />
+        <title>오늘도청춘 | 시니어들을 위한 일기 SNS</title>
+        <meta name="title" content="오늘도청춘 | 시니어들을 위한 일기 SNS" />
         <meta
           name="description"
-          content="비대면 금연 치료 플랫폼 금연온으로 금연 사업의 혁신 우수사례를 만들어보세요."
+          content="건강, 마음, 인지 관리를 한번에! 사용하기 쉬운 치매 예방 플랫폼"
         />
         <meta
           property="og:site_name"
-          content="금연온 | 모바일 금연클리닉 금연ON"
+          content="오늘도청춘 | 시니어들을 위한 일기 SNS"
         />
-        <meta property="og:title" content="금연온 | 모바일 금연클리닉 금연ON" />
-        <meta property="og:image" content="../assets/room.png" />
+        <meta
+          property="og:title"
+          content="오늘도청춘 | 시니어들을 위한 일기 SNS"
+        />
+        <meta property="og:image" content="%PUBLIC_URL%/pink-icon.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:url" content="https://www.no-smoking.kr" />
+        {/* <meta property="og:url" content="https://www.no-smoking.kr" />  */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ko_KR" />
         <meta
           name="og:description"
-          content="비대면 금연 치료 플랫폼 금연온으로 금연 사업의 혁신 우수사례를 만들어보세요."
+          content="건강, 마음, 인지 관리를 한번에! 사용하기 쉬운 치매 예방 플랫폼"
         />
-        <meta name="og:url" content="https://www.no-smoking.kr/" />
-        <link rel="apple-touch-icon" href="../assets/meta_img.png" />
+        <link rel="apple-touch-icon" href="../assets/pink-icon.png" />
       </Helmet>
 
       <Router basename={process.env.PUBLIC_URL}>

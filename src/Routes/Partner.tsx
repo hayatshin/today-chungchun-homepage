@@ -311,7 +311,7 @@ function Partner() {
             <AgreeContent>
               <AgreeText>(필수)개인정보 수집, 이용에 대한 안내</AgreeText>
               <AgreeText>
-                (주)신지컴퍼니는 이용자 문의를 처리하기 위해 다음과 같이
+                (주)오늘도청춘은 이용자 문의를 처리하기 위해 다음과 같이
                 개인정보를 수집 및 이용하며, 이용자의 개인 정보를 안전하게
                 취급하는데 최선을 다하고 있습니다.
               </AgreeText>

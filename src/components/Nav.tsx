@@ -44,25 +44,11 @@ interface MunuTextForm {
 const HomeText = styled.span<MunuTextForm>`
   font-size: 20px;
   color: ${(props) =>
-    props.page === "news" || (props.location === "/" && props.ychange < 702)
+    props.page === "news" || (props.location === "/" && props.ychange < 880)
       ? colors.mainColor
       : colors.boldGray};
   font-weight: ${(props) =>
-    props.page === "news" || (props.location === "/" && props.ychange < 702)
-      ? "500"
-      : "400"};
-`;
-
-const NewsText = styled.span<MunuTextForm>`
-  font-size: 20px;
-  color: ${(props) =>
-    props.page === "news" ||
-    (props.location === "/" && props.ychange >= 702 && props.ychange < 2063)
-      ? colors.mainColor
-      : colors.boldGray};
-  font-weight: ${(props) =>
-    props.page === "news" ||
-    (props.location === "/" && props.ychange >= 702 && props.ychange < 2063)
+    props.page === "news" || (props.location === "/" && props.ychange < 880)
       ? "500"
       : "400"};
 `;
@@ -71,12 +57,12 @@ const ServiceText = styled.span<MunuTextForm>`
   font-size: 20px;
   color: ${(props) =>
     props.page === "service" ||
-    (props.location === "/" && props.ychange >= 2063 && props.ychange < 5234)
+    (props.location === "/" && props.ychange >= 880 && props.ychange < 2697)
       ? colors.mainColor
       : colors.boldGray};
   font-weight: ${(props) =>
     props.page === "service" ||
-    (props.location === "/" && props.ychange >= 2063 && props.ychange < 5234)
+    (props.location === "/" && props.ychange >= 880 && props.ychange < 2697)
       ? "500"
       : "400"};
 `;
@@ -84,13 +70,11 @@ const ServiceText = styled.span<MunuTextForm>`
 const AppText = styled.span<MunuTextForm>`
   font-size: 20px;
   color: ${(props) =>
-    props.page === "app" ||
-    (props.location === "/" && props.ychange >= 5234 && props.ychange < 10336)
+    props.page === "app" || (props.location === "/" && props.ychange >= 2697)
       ? colors.mainColor
       : colors.boldGray};
   font-weight: ${(props) =>
-    props.page === "app" ||
-    (props.location === "/" && props.ychange >= 5234 && props.ychange < 10336)
+    props.page === "app" || (props.location === "/" && props.ychange >= 2697)
       ? "500"
       : "400"};
 `;
@@ -105,7 +89,7 @@ const PartnerText = styled.span<MunuTextForm>`
 const NavBottom = styled(motion.div)`
   width: 100%;
   height: 4px;
-  background-color: #d35655;
+  background-color: #ff2d78;
   position: absolute;
   bottom: 0;
 `;
@@ -120,6 +104,7 @@ function Nav() {
 
   useEffect(() => {
     scrollY.onChange(() => {
+      console.log(scrollY.get());
       setYchange(scrollY.get());
       if (scrollY.get() > 0 && scrollY.get() < 500) {
         navAnimation.start({
@@ -144,7 +129,10 @@ function Nav() {
             alignItems: "center",
           }}
         >
-          <img style={{ width: 120 }} src={require("../assets/logo.png")} />
+          <img
+            style={{ width: 120 }}
+            src={require("../assets/title-icon.png")}
+          />
         </div>
 
         <NavItem
@@ -156,31 +144,15 @@ function Nav() {
           }}
         >
           <HomeText page={page} ychange={ychange} location={location}>
-            금연온
+            오늘도청춘
           </HomeText>
-          {location === "/" && ychange < 702 ? <NavBottom /> : null}
+          {location === "/" && ychange < 880 ? <NavBottom /> : null}
         </NavItem>
         <NavItem
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: 703, behavior: "smooth" });
-            });
-          }}
-        >
-          <NewsText page={page} ychange={ychange} location={location}>
-            활용 사례
-          </NewsText>
-          {page === "news" ||
-          (location === "/" && ychange >= 702 && ychange < 2063) ? (
-            <NavBottom />
-          ) : null}
-        </NavItem>
-        <NavItem
-          onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: 2064, behavior: "smooth" });
+              window.scrollTo({ top: 880, behavior: "smooth" });
             });
           }}
         >
@@ -188,7 +160,7 @@ function Nav() {
             서비스 소개
           </ServiceText>
           {page === "service" ||
-          (location === "/" && ychange >= 2063 && ychange < 5234) ? (
+          (location === "/" && ychange >= 880 && ychange < 2697) ? (
             <NavBottom />
           ) : null}
         </NavItem>
@@ -196,15 +168,14 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: 5235, behavior: "smooth" });
+              window.scrollTo({ top: 2697, behavior: "smooth" });
             });
           }}
         >
           <AppText page={page} ychange={ychange} location={location}>
             앱 소개
           </AppText>
-          {page === "app" ||
-          (location === "/" && ychange >= 5234 && ychange < 10336) ? (
+          {page === "app" || (location === "/" && ychange >= 2697) ? (
             <NavBottom />
           ) : null}
         </NavItem>

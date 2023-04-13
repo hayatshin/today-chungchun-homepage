@@ -14,7 +14,7 @@ function Border() {
     <BorderBox>
       <div
         style={{
-          width: "70%",
+          width: "65%",
           height: 2,
           backgroundColor: colors.lightGray,
           display: "flex",
