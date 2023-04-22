@@ -20,6 +20,10 @@ function App() {
           name="naver-site-verification"
           content="1f47b4b7082b49134a3bf766067f803124085faa"
         />
+        <meta
+          name="google-site-verification"
+          content="jJ7nTNfr2pXhNOC_Stukpgvf2k-OrkUwGgdkvrPPMGc"
+        />
         <meta property="og:type" content="website" />
         <title>오늘도청춘 | 시니어들을 위한 일기 SNS</title>
         <meta name="title" content="오늘도청춘 | 시니어들을 위한 일기 SNS" />
