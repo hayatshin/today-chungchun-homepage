@@ -125,7 +125,6 @@ function Nav() {
 
   useEffect(() => {
     scrollY.onChange(() => {
-      console.log(scrollY.get());
       setYchange(scrollY.get());
       if (scrollY.get() > 0 && scrollY.get() < 500) {
         navAnimation.start({
@@ -140,7 +139,6 @@ function Nav() {
   }, [scrollY]);
 
   useEffect(() => {
-    console.log(`${screen} / ${firstY} / ${secondY}`);
     if (screen < 1000) {
       // 모바일
       setFirstY(860);

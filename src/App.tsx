@@ -16,6 +16,10 @@ function App() {
           http-equiv="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;
           style-src 'self' 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=';   style-src 'self' 'sha256-MBVp6JYxbC/wICelYC6eULCRpgi9kGezXXSaq/TS2+I=';"
         />
+        <meta
+          name="naver-site-verification"
+          content="1f47b4b7082b49134a3bf766067f803124085faa"
+        />
         <meta property="og:type" content="website" />
         <title>오늘도청춘 | 시니어들을 위한 일기 SNS</title>
         <meta name="title" content="오늘도청춘 | 시니어들을 위한 일기 SNS" />
@@ -27,6 +31,7 @@ function App() {
           property="og:site_name"
           content="오늘도청춘 | 시니어들을 위한 일기 SNS"
         />
+        <meta property="og:url" content="https://onldocc.com" />
         <meta
           property="og:title"
           content="오늘도청춘 | 시니어들을 위한 일기 SNS"
