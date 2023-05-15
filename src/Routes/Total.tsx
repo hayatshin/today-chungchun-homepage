@@ -306,7 +306,7 @@ function Total() {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>오늘도청춘 - 시니어들을 위한 일기 SNS</title>
+        <title>오늘도청춘 | 세상에서 가장 쉬운 치매 예방 플랫폼</title>
       </Helmet>
 
       <Wrapper>

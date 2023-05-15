@@ -125,6 +125,7 @@ function Nav() {
 
   useEffect(() => {
     scrollY.onChange(() => {
+      console.log(scrollY.get());
       setYchange(scrollY.get());
       if (scrollY.get() > 0 && scrollY.get() < 500) {
         navAnimation.start({
@@ -141,12 +142,12 @@ function Nav() {
   useEffect(() => {
     if (screen < 1000) {
       // 모바일
-      setFirstY(860);
-      setSecondY(2139);
+      setFirstY(743);
+      setSecondY(2439);
     } else {
       // 웹
-      setFirstY(880);
-      setSecondY(2697);
+      setFirstY(760);
+      setSecondY(3212);
     }
   }, [screen]);
 
@@ -201,12 +202,12 @@ function Nav() {
             ychange={ychange}
             location={location}
             firstY={firstY}
-            secondY={secondY}
+            secondY={secondY - 5}
           >
             서비스 소개
           </ServiceText>
           {page === "service" ||
-          (location === "/" && ychange >= firstY && ychange < secondY) ? (
+          (location === "/" && ychange >= firstY && ychange < secondY - 5) ? (
             <NavBottom />
           ) : null}
         </NavItem>
@@ -223,11 +224,11 @@ function Nav() {
             ychange={ychange}
             location={location}
             firstY={firstY}
-            secondY={secondY}
+            secondY={secondY - 5}
           >
             앱 소개
           </AppText>
-          {page === "app" || (location === "/" && ychange >= secondY) ? (
+          {page === "app" || (location === "/" && ychange >= secondY - 5) ? (
             <NavBottom />
           ) : null}
         </NavItem>

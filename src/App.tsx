@@ -25,20 +25,23 @@ function App() {
           content="jJ7nTNfr2pXhNOC_Stukpgvf2k-OrkUwGgdkvrPPMGc"
         />
         <meta property="og:type" content="website" />
-        <title>오늘도청춘 | 시니어들을 위한 일기 SNS</title>
-        <meta name="title" content="오늘도청춘 | 시니어들을 위한 일기 SNS" />
+        <title>오늘도청춘 | 세상에서 가장 쉬운 치매 예방 플랫폼</title>
+        <meta
+          name="title"
+          content="오늘도청춘 | 세상에서 가장 쉬운 치매 예방 플랫폼"
+        />
         <meta
           name="description"
           content="건강, 마음, 인지 관리를 한번에! 사용하기 쉬운 치매 예방 플랫폼"
         />
         <meta
           property="og:site_name"
-          content="오늘도청춘 | 시니어들을 위한 일기 SNS"
+          content="오늘도청춘 | 세상에서 가장 쉬운 치매 예방 플랫폼"
         />
         <meta property="og:url" content="https://onldocc.com" />
         <meta
           property="og:title"
-          content="오늘도청춘 | 시니어들을 위한 일기 SNS"
+          content="오늘도청춘 | 세상에서 가장 쉬운 치매 예방 플랫폼"
         />
         <meta property="og:image" content="%PUBLIC_URL%/pink-icon.png" />
         <meta property="og:image:type" content="image/png" />

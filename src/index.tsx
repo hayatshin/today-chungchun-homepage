@@ -1,10 +1,11 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { HelmetProvider } from "react-helmet-async";
 
 const GlobalStyle = createGlobalStyle`
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -33,7 +34,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif'
+  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	overflow-y: scroll;
+  	&::-webkit-scrollbar {
+    	display: none;
+  }
 }
 ol, ul {
 	list-style: none;
