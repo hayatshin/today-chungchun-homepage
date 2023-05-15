@@ -182,8 +182,8 @@ function Nav() {
             page={page}
             ychange={ychange}
             location={location}
-            firstY={firstY}
-            secondY={secondY}
+            firstY={firstY - 5}
+            secondY={secondY - 5}
           >
             오늘도청춘
           </HomeText>
