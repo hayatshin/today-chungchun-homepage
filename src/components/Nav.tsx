@@ -137,17 +137,17 @@ function Nav() {
         });
       }
     });
-  }, [scrollY, firstY, secondY]);
+  }, [scrollY]);
 
   useEffect(() => {
     if (screen < 1000) {
       // 모바일
-      setFirstY(743);
-      setSecondY(2439);
+      setFirstY(743 - 5);
+      setSecondY(2439 - 5);
     } else {
       // 웹
-      setFirstY(760);
-      setSecondY(3212);
+      setFirstY(760 - 5);
+      setSecondY(3212 - 5);
     }
   }, [screen]);
 
@@ -191,7 +191,7 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: firstY, behavior: "smooth" });
+              window.scrollTo({ top: firstY + 5, behavior: "smooth" });
             });
           }}
         >
@@ -213,7 +213,7 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: secondY, behavior: "smooth" });
+              window.scrollTo({ top: secondY + 5, behavior: "smooth" });
             });
           }}
         >
