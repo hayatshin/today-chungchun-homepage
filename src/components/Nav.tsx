@@ -187,13 +187,13 @@ function Nav() {
           >
             오늘도청춘
           </HomeText>
-          {location === "/" && ychange < firstY ? <NavBottom /> : null}
+          {location === "/" && ychange < firstY - 5 ? <NavBottom /> : null}
         </NavItem>
         <NavItem
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: firstY, behavior: "smooth" });
+              window.scrollTo({ top: firstY - 5, behavior: "smooth" });
             });
           }}
         >
@@ -207,7 +207,9 @@ function Nav() {
             서비스 소개
           </ServiceText>
           {page === "service" ||
-          (location === "/" && ychange >= firstY && ychange < secondY - 5) ? (
+          (location === "/" &&
+            ychange >= firstY - 5 &&
+            ychange < secondY - 5) ? (
             <NavBottom />
           ) : null}
         </NavItem>
@@ -215,7 +217,7 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: secondY, behavior: "smooth" });
+              window.scrollTo({ top: secondY - 5, behavior: "smooth" });
             });
           }}
         >
