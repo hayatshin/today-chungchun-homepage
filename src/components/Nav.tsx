@@ -201,7 +201,7 @@ function Nav() {
             page={page}
             ychange={ychange}
             location={location}
-            firstY={firstY}
+            firstY={firstY - 5}
             secondY={secondY - 5}
           >
             서비스 소개
@@ -223,7 +223,7 @@ function Nav() {
             page={page}
             ychange={ychange}
             location={location}
-            firstY={firstY}
+            firstY={firstY - 5}
             secondY={secondY - 5}
           >
             앱 소개
