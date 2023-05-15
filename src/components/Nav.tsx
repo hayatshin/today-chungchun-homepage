@@ -137,7 +137,7 @@ function Nav() {
         });
       }
     });
-  }, [scrollY]);
+  }, [scrollY, firstY, secondY]);
 
   useEffect(() => {
     if (screen < 1000) {
@@ -150,8 +150,6 @@ function Nav() {
       setSecondY(3212);
     }
   }, [screen]);
-
-  useEffect(() => {}, [firstY, secondY]);
 
   return (
     <NavWrapper ychange={ychange} animate={navAnimation}>
@@ -182,18 +180,18 @@ function Nav() {
             page={page}
             ychange={ychange}
             location={location}
-            firstY={firstY - 5}
-            secondY={secondY - 5}
+            firstY={firstY}
+            secondY={secondY}
           >
             오늘도청춘
           </HomeText>
-          {location === "/" && ychange < firstY - 5 ? <NavBottom /> : null}
+          {location === "/" && ychange < firstY ? <NavBottom /> : null}
         </NavItem>
         <NavItem
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: firstY - 5, behavior: "smooth" });
+              window.scrollTo({ top: firstY, behavior: "smooth" });
             });
           }}
         >
@@ -201,15 +199,13 @@ function Nav() {
             page={page}
             ychange={ychange}
             location={location}
-            firstY={firstY - 5}
-            secondY={secondY - 5}
+            firstY={firstY}
+            secondY={secondY}
           >
             서비스 소개
           </ServiceText>
           {page === "service" ||
-          (location === "/" &&
-            ychange >= firstY - 5 &&
-            ychange < secondY - 5) ? (
+          (location === "/" && ychange >= firstY && ychange < secondY) ? (
             <NavBottom />
           ) : null}
         </NavItem>
@@ -217,7 +213,7 @@ function Nav() {
           onClick={() => {
             navigate("/");
             setTimeout(() => {
-              window.scrollTo({ top: secondY - 5, behavior: "smooth" });
+              window.scrollTo({ top: secondY, behavior: "smooth" });
             });
           }}
         >
@@ -225,12 +221,12 @@ function Nav() {
             page={page}
             ychange={ychange}
             location={location}
-            firstY={firstY - 5}
-            secondY={secondY - 5}
+            firstY={firstY}
+            secondY={secondY}
           >
             앱 소개
           </AppText>
-          {page === "app" || (location === "/" && ychange >= secondY - 5) ? (
+          {page === "app" || (location === "/" && ychange >= secondY) ? (
             <NavBottom />
           ) : null}
         </NavItem>
