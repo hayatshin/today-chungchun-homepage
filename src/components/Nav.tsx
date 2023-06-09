@@ -3,6 +3,7 @@ import { motion, useScroll, useAnimation } from "framer-motion";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import colors from "../colors";
+import { ReactComponent as TitleIconSVG } from "../assets/title-icon-svg.svg";
 
 const NavWrapper = styled(motion.nav)<{ ychange: number }>`
   z-index: 99;
@@ -22,6 +23,11 @@ const NavBox = styled.div`
   top: 0;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+
+  @media screen and (max-width: 1100px) {
+    width: 90%;
+    grid-template-columns: repeat(5, 1fr);
+  }
 `;
 
 const NavItem = styled.div`
@@ -33,6 +39,11 @@ const NavItem = styled.div`
   height: 100%;
   position: relative;
   cursor: pointer;
+
+  @media screen and (max-width: 1100px) {
+    padding-left: 50;
+    padding-right: 50;
+  }
 `;
 
 interface MunuTextForm {
@@ -44,6 +55,7 @@ interface MunuTextForm {
 }
 
 const HomeText = styled.span<MunuTextForm>`
+  margin-bottom: 5px;
   font-size: 20px;
   color: ${(props) =>
     props.page === "news" ||
@@ -53,11 +65,13 @@ const HomeText = styled.span<MunuTextForm>`
   font-weight: ${(props) =>
     props.page === "news" ||
     (props.location === "/" && props.ychange < props.firstY)
-      ? "500"
-      : "400"};
+      ? "700"
+      : "500"};
 `;
 
 const ServiceText = styled.span<MunuTextForm>`
+  margin-bottom: 5px;
+
   font-size: 20px;
   color: ${(props) =>
     props.page === "service" ||
@@ -71,11 +85,13 @@ const ServiceText = styled.span<MunuTextForm>`
     (props.location === "/" &&
       props.ychange >= props.firstY &&
       props.ychange < props.secondY)
-      ? "500"
-      : "400"};
+      ? "700"
+      : "500"};
 `;
 
 const AppText = styled.span<MunuTextForm>`
+  margin-bottom: 5px;
+
   font-size: 20px;
   color: ${(props) =>
     props.page === "app" ||
@@ -85,23 +101,25 @@ const AppText = styled.span<MunuTextForm>`
   font-weight: ${(props) =>
     props.page === "app" ||
     (props.location === "/" && props.ychange >= props.secondY)
-      ? "500"
-      : "400"};
+      ? "700"
+      : "500"};
 `;
 
 const PartnerText = styled.span<MunuTextForm>`
+  margin-bottom: 5px;
+
   color: ${(props) =>
     props.location === "/partner" ? colors.mainColor : colors.boldGray};
   font-size: 20px;
-  font-weight: ${(props) => (props.location === "/partner" ? "500" : "400")};
+  font-weight: ${(props) => (props.location === "/partner" ? "700" : "500")};
 `;
 
 const NavBottom = styled(motion.div)`
-  width: 100%;
-  height: 4px;
+  width: 60%;
+  height: 2px;
   background-color: #ff2d78;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 1; */
 `;
 
 function Nav() {
@@ -142,14 +160,18 @@ function Nav() {
   useEffect(() => {
     if (screen < 1000) {
       // 모바일
-      setFirstY(743 - 5);
-      setSecondY(2439 - 5);
+      setFirstY(840 - 5);
+      setSecondY(1720 - 5);
     } else {
       // 웹
-      setFirstY(760 - 5);
-      setSecondY(3212 - 5);
+      setFirstY(1080 - 5);
+      setSecondY(2040 - 5);
     }
   }, [screen]);
+
+  const titleIconStyle = {
+    width: 150,
+  };
 
   return (
     <NavWrapper ychange={ychange} animate={navAnimation}>
@@ -160,12 +182,10 @@ function Nav() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            width: 400,
           }}
         >
-          <img
-            style={{ width: 120 }}
-            src={require("../assets/title-icon.png")}
-          />
+          <TitleIconSVG style={titleIconStyle} />
         </div>
 
         <NavItem

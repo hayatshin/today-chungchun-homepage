@@ -24,17 +24,17 @@ function Footer() {
   return (
     <FooterWrapper>
       <FooterText style={{ fontWeight: 400, fontSize: 20, marginBottom: 20 }}>
-        (주)오늘도청춘
+        오늘도청춘
       </FooterText>
       <FooterText>대표: 신혜정</FooterText>
       <FooterText>
-        경기도 용인시 수지구 동천로99번길 3, 더라이즈 비지니스센터 34호
+        경기도 성남시 수정구 위례순환로 53 성남창업센터 3602동 1311호
       </FooterText>
-      <FooterText>문의 메일: help@chungchunon.com</FooterText>
+      <FooterText>문의 메일: help@onldocc.com</FooterText>
       <FooterText>문의 번호: 031. 756. 1214</FooterText>
       <FooterText>사업자 등록번호: 628-36-01150</FooterText>
       <FooterText style={{ fontWeight: 400, marginTop: 20 }}>
-        Copyright © {year} (주)오늘도청춘. All Right Reserved.
+        Copyright © {year} 오늘도청춘. All Right Reserved.
       </FooterText>
     </FooterWrapper>
   );
