@@ -24,15 +24,30 @@ const Wrapper = styled.div`
 `;
 
 const FirstPage = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 30px;
   padding-top: 80px;
   padding-bottom: 150px;
 
   @media screen and (max-width: 1100px) {
+    width: 100%;
+    flex-direction: column;
     margin-bottom: 50px;
+  }
+`;
+
+const FirstImageBox = styled.div`
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 1100px) {
+    width: 80%;
   }
 `;
 
@@ -43,8 +58,12 @@ const FirstBox = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
-  padding-left: 30px;
-  padding-right: 30px;
+  /* padding-left: 30px;
+  padding-right: 30px; */
+
+  @media screen and (max-width: 1100px) {
+    width: 100%;
+  }
 `;
 
 const HeaderBigText = styled.span`
@@ -202,7 +221,7 @@ const AppIntroText = styled.span`
   margin-bottom: 25px;
 
   @media screen and (max-width: 1100px) {
-    font-size: 22px;
+    font-size: 25px;
   }
 `;
 
@@ -213,7 +232,6 @@ const TabHeader = styled.p`
   color: ${colors.gray};
 
   @media screen and (max-width: 1100px) {
-    font-size: 22px;
     text-align: center;
   }
 `;
@@ -221,12 +239,13 @@ const TabHeader = styled.p`
 const ServiceFirstText = styled.p`
   font-size: 35px;
   font-weight: 500;
-  margin-bottom: 40px;
-  color: ${colors.lightMain};
+  margin-bottom: 20px;
+  color: ${colors.boldGray};
+  margin-right: 10px;
 
   @media screen and (max-width: 1100px) {
-    font-size: 18px;
     text-align: center;
+    margin-right: 0px;
   }
 `;
 
@@ -234,16 +253,19 @@ const ServiceSecondText = styled.p`
   font-size: 38px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: ${colors.lightGray};
+  margin-right: 10px;
+
+  /* color: ${colors.lightGray}; */
 
   @media screen and (max-width: 1100px) {
-    font-size: 22px;
     text-align: center;
+    line-height: 1.3;
+    margin-right: 0px;
   }
 `;
 
 const ServiceGridItem = styled.div`
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 30px;
   border-radius: 20px;
   display: flex;
@@ -256,7 +278,7 @@ const ServiceItemText = styled.p`
   margin-top: 30px;
   font-size: 23px;
   font-weight: 700;
-  color: ${colors.gray};
+  color: ${colors.boldGray};
   text-align: center;
 `;
 
@@ -264,7 +286,7 @@ const SecondBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${colors.darkMain};
+  background-color: ${colors.lightMain};
   padding-top: 150px;
   padding-bottom: 150px;
   padding-left: 100px;
@@ -281,11 +303,45 @@ const ThirdBox = styled.div`
   padding-right: 100px; */
 `;
 
+const TextMediaBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1100px) {
+    flex-direction: column;
+  }
+`;
+
+const SecondMediaBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+
+  @media screen and (max-width: 1100px) {
+    flex-direction: column;
+  }
+`;
+
+const SecondTextGroupBox = styled.div`
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 1100px) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+`;
+
 function Home() {
   const [appIntroIndex, setAppIntroIndex] = useState(0);
 
   const svgStyle = {
-    fill: "white",
+    fill: `${colors.boldGray}`,
     width: "30%",
     height: "30%",
   };
@@ -324,6 +380,12 @@ function Home() {
 
       <Wrapper>
         <FirstPage>
+          <FirstImageBox>
+            <img
+              style={{ width: "100%" }}
+              src={require("../assets/mainimg/main_phone_hand.png")}
+            />
+          </FirstImageBox>
           <FirstBox>
             <HeaderDescription>치매 예방 사업에</HeaderDescription>
             <HeaderDescription>IT 기술을 더하다</HeaderDescription>
@@ -353,44 +415,39 @@ function Home() {
               </ButtonBox>
             </ButtonContainer>
           </FirstBox>
-          <div
-            style={{
-              width: "70%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <img
-              style={{ width: "100%" }}
-              src={require("../assets/mainimg/main_phone_hand.png")}
-            />
-          </div>
         </FirstPage>
         {/* 활용 사례 */}
         {/* 서비스 안내 */}
         <SecondBox>
           <TabHeader>오늘도청춘 이란?</TabHeader>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              marginBottom: 100,
-            }}
-          >
-            <ServiceFirstText>
-              사용하기 어렵고 혼자 하는 치매 예방은 이제 그만!
-            </ServiceFirstText>
-            <ServiceSecondText>
-              시니어 분들이 하루 한번! 단 5분!
-            </ServiceSecondText>
-            <ServiceSecondText>
-              앱에 접속하여 4가지 활동을 빠르게 체크하여
-            </ServiceSecondText>
-            <ServiceSecondText>치매를 예방하는 플랫폼입니다.</ServiceSecondText>
-          </div>
+          <SecondMediaBox>
+            <SecondTextGroupBox>
+              <TextMediaBox>
+                <ServiceFirstText>사용하기 어렵고 혼자 하는</ServiceFirstText>
+                <ServiceFirstText>치매 예방은 이제 그만!</ServiceFirstText>
+              </TextMediaBox>
+            </SecondTextGroupBox>
+
+            <SecondTextGroupBox>
+              <TextMediaBox>
+                <ServiceSecondText>시니어 분들이 하루 한번!</ServiceSecondText>
+                <ServiceSecondText>단 5분!</ServiceSecondText>
+              </TextMediaBox>
+            </SecondTextGroupBox>
+
+            <TextMediaBox>
+              <ServiceSecondText>앱에 접속하여</ServiceSecondText>
+              <ServiceSecondText>
+                4가지 활동을 빠르게 체크하여
+              </ServiceSecondText>
+            </TextMediaBox>
+
+            <TextMediaBox>
+              <ServiceSecondText>
+                치매를 예방하는 플랫폼입니다.
+              </ServiceSecondText>
+            </TextMediaBox>
+          </SecondMediaBox>
 
           <div
             style={{

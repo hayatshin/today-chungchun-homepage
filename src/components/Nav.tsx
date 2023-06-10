@@ -15,18 +15,67 @@ const NavWrapper = styled(motion.nav)<{ ychange: number }>`
   box-sizing: border-box;
   border-bottom: ${(props) =>
     props.ychange > 100 ? "1px solid #dfe6e9" : null};
+
+  @media screen and (max-width: 1100px) {
+    padding-bottom: 350px;
+    border-bottom: ${(props) =>
+      props.ychange >= 0 ? "1px solid #dfe6e9" : null};
+  }
+`;
+
+const NavContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+  }
+`;
+
+const NavImageTotalBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+
+  @media screen and (max-width: 1100px) {
+    padding-top: 80px;
+    width: 300px;
+  }
+`;
+
+const NavLogoImageBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+
+  @media screen and (max-width: 1100px) {
+    padding-top: 80px;
+    width: 300px;
+  }
 `;
 
 const NavBox = styled.div`
-  width: 80%;
+  width: 70%;
   height: 100%;
   top: 0;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  background-color: white;
 
   @media screen and (max-width: 1100px) {
-    width: 90%;
-    grid-template-columns: repeat(5, 1fr);
+    width: 80%;
+    grid-template-columns: repeat(4, 1fr);
+    padding-top: 100px;
   }
 `;
 
@@ -39,10 +88,10 @@ const NavItem = styled.div`
   height: 100%;
   position: relative;
   cursor: pointer;
+  background-color: white;
 
   @media screen and (max-width: 1100px) {
-    padding-left: 50;
-    padding-right: 50;
+    padding-bottom: 20px;
   }
 `;
 
@@ -67,6 +116,10 @@ const HomeText = styled.span<MunuTextForm>`
     (props.location === "/" && props.ychange < props.firstY)
       ? "700"
       : "500"};
+
+  @media screen and (max-width: 1100px) {
+    font-size: 35px;
+  }
 `;
 
 const ServiceText = styled.span<MunuTextForm>`
@@ -87,6 +140,10 @@ const ServiceText = styled.span<MunuTextForm>`
       props.ychange < props.secondY)
       ? "700"
       : "500"};
+
+  @media screen and (max-width: 1100px) {
+    font-size: 35px;
+  }
 `;
 
 const AppText = styled.span<MunuTextForm>`
@@ -103,6 +160,10 @@ const AppText = styled.span<MunuTextForm>`
     (props.location === "/" && props.ychange >= props.secondY)
       ? "700"
       : "500"};
+
+  @media screen and (max-width: 1100px) {
+    font-size: 35px;
+  }
 `;
 
 const PartnerText = styled.span<MunuTextForm>`
@@ -112,19 +173,26 @@ const PartnerText = styled.span<MunuTextForm>`
     props.location === "/partner" ? colors.mainColor : colors.boldGray};
   font-size: 20px;
   font-weight: ${(props) => (props.location === "/partner" ? "700" : "500")};
+
+  @media screen and (max-width: 1100px) {
+    font-size: 35px;
+  }
 `;
 
 const NavBottom = styled(motion.div)`
-  width: 60%;
+  width: 50%;
   height: 2px;
   background-color: #ff2d78;
   /* position: absolute;
   bottom: 1; */
+
+  @media screen and (max-width: 1100px) {
+    width: 0%;
+  }
 `;
 
 function Nav() {
   const [screen, setScreen] = useState(window.innerWidth);
-
   const location = useLocation().pathname;
   const navigate = useNavigate();
   const { scrollY } = useScroll();
@@ -160,117 +228,113 @@ function Nav() {
   useEffect(() => {
     if (screen < 1000) {
       // 모바일
-      setFirstY(840 - 5);
-      setSecondY(1720 - 5);
+      setFirstY(1610 - 5);
+      setSecondY(2860 - 5);
     } else {
       // 웹
-      setFirstY(1080 - 5);
-      setSecondY(2040 - 5);
+      setFirstY(1050 - 5);
+      setSecondY(2025 - 5);
     }
   }, [screen]);
 
   const titleIconStyle = {
-    width: 150,
+    width: "100%",
   };
 
   return (
     <NavWrapper ychange={ychange} animate={navAnimation}>
-      <NavBox>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: 400,
-          }}
-        >
-          <TitleIconSVG style={titleIconStyle} />
-        </div>
+      <NavContainer>
+        <NavImageTotalBox>
+          <NavLogoImageBox>
+            <TitleIconSVG style={titleIconStyle} />
+          </NavLogoImageBox>
+        </NavImageTotalBox>
 
-        <NavItem
-          onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-          }}
-        >
-          <HomeText
-            page={page}
-            ychange={ychange}
-            location={location}
-            firstY={firstY}
-            secondY={secondY}
+        <NavBox>
+          <NavItem
+            onClick={() => {
+              navigate("/");
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              });
+            }}
           >
-            오늘도청춘
-          </HomeText>
-          {location === "/" && ychange < firstY ? <NavBottom /> : null}
-        </NavItem>
-        <NavItem
-          onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: firstY + 5, behavior: "smooth" });
-            });
-          }}
-        >
-          <ServiceText
-            page={page}
-            ychange={ychange}
-            location={location}
-            firstY={firstY}
-            secondY={secondY}
+            <HomeText
+              page={page}
+              ychange={ychange}
+              location={location}
+              firstY={firstY}
+              secondY={secondY}
+            >
+              오늘도청춘
+            </HomeText>
+            {location === "/" && ychange < firstY ? <NavBottom /> : null}
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              navigate("/");
+              setTimeout(() => {
+                window.scrollTo({ top: firstY + 5, behavior: "smooth" });
+              });
+            }}
           >
-            서비스 소개
-          </ServiceText>
-          {page === "service" ||
-          (location === "/" && ychange >= firstY && ychange < secondY) ? (
-            <NavBottom />
-          ) : null}
-        </NavItem>
-        <NavItem
-          onClick={() => {
-            navigate("/");
-            setTimeout(() => {
-              window.scrollTo({ top: secondY + 5, behavior: "smooth" });
-            });
-          }}
-        >
-          <AppText
-            page={page}
-            ychange={ychange}
-            location={location}
-            firstY={firstY}
-            secondY={secondY}
+            <ServiceText
+              page={page}
+              ychange={ychange}
+              location={location}
+              firstY={firstY}
+              secondY={secondY}
+            >
+              서비스 소개
+            </ServiceText>
+            {page === "service" ||
+            (location === "/" && ychange >= firstY && ychange < secondY) ? (
+              <NavBottom />
+            ) : null}
+          </NavItem>
+          <NavItem
+            onClick={() => {
+              navigate("/");
+              setTimeout(() => {
+                window.scrollTo({ top: secondY + 5, behavior: "smooth" });
+              });
+            }}
           >
-            앱 소개
-          </AppText>
-          {page === "app" || (location === "/" && ychange >= secondY) ? (
-            <NavBottom />
-          ) : null}
-        </NavItem>
+            <AppText
+              page={page}
+              ychange={ychange}
+              location={location}
+              firstY={firstY}
+              secondY={secondY}
+            >
+              앱 소개
+            </AppText>
+            {page === "app" || (location === "/" && ychange >= secondY) ? (
+              <NavBottom />
+            ) : null}
+          </NavItem>
 
-        <NavItem
-          onClick={() => {
-            navigate("/partner");
-            setTimeout(() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-          }}
-        >
-          <PartnerText
-            page={page}
-            ychange={ychange}
-            location={location}
-            firstY={firstY}
-            secondY={secondY}
+          <NavItem
+            onClick={() => {
+              navigate("/partner");
+              setTimeout(() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              });
+            }}
           >
-            계약 문의
-          </PartnerText>
-          {location === "/partner" && <NavBottom />}
-        </NavItem>
-      </NavBox>
+            <PartnerText
+              page={page}
+              ychange={ychange}
+              location={location}
+              firstY={firstY}
+              secondY={secondY}
+            >
+              계약 문의
+            </PartnerText>
+            {location === "/partner" && <NavBottom />}
+          </NavItem>
+        </NavBox>
+      </NavContainer>
     </NavWrapper>
   );
 }

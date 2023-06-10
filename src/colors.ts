@@ -12,7 +12,7 @@ interface ColorProps {
 const colors : ColorProps = {
     darkMain: "#870E3F",
     mainColor: "#FF2D78", // rgba(255, 45, 120)
-    lightMain: "#F3B4C9", // rgba(255, 214, 236)
+    lightMain: "#FCEDF8", // rgba(255, 214, 236)
     boldGray: "#383838",
     gray: "#A0A0A0",
     lightGray: "#F7FAFC",
