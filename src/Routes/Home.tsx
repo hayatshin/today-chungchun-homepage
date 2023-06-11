@@ -9,7 +9,7 @@ import { ReactComponent as PenSVG } from "../assets/service/pen-light.svg";
 import { ReactComponent as WalkSVG } from "../assets/service/person-walking-light.svg";
 import { ReactComponent as ChevronLeftSVG } from "../assets/svg/chevron-left-light.svg";
 import { ReactComponent as ChevronRightSVG } from "../assets/svg/chevron-right-light.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // 활용사례 702, 서비스소개 2063, 앱소개 5234, 다운로드 10336
 
@@ -370,6 +370,17 @@ function Home() {
       setAppIntroIndex(0);
     }
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (appIntroIndex != 3) {
+        setAppIntroIndex(appIntroIndex + 1);
+      } else {
+        setAppIntroIndex(0);
+      }
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [appIntroIndex]);
 
   return (
     <>
