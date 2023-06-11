@@ -10,6 +10,7 @@ import { ReactComponent as WalkSVG } from "../assets/service/person-walking-ligh
 import { ReactComponent as ChevronLeftSVG } from "../assets/svg/chevron-left-light.svg";
 import { ReactComponent as ChevronRightSVG } from "../assets/svg/chevron-right-light.svg";
 import { useEffect, useState } from "react";
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
 // 활용사례 702, 서비스소개 2063, 앱소개 5234, 다운로드 10336
 
@@ -190,13 +191,16 @@ const AppIntroEachBox = styled.div`
 `;
 
 const AppServiceEachBox = styled.div`
+  position: absolute;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   padding-top: 10px;
-  padding-left: 200px;
-  padding-right: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   width: 60%;
 `;
 
@@ -378,7 +382,7 @@ function Home() {
       } else {
         setAppIntroIndex(0);
       }
-    }, 1500);
+    }, 3500);
     return () => clearInterval(interval);
   }, [appIntroIndex]);
 
@@ -493,22 +497,104 @@ function Home() {
         {/* 앱 소개 */}
         <ThirdBox style={{ position: "relative" }}>
           <TabHeader>앱 소개</TabHeader>
+
           <div
             style={{
-              top: 300,
-              position: "absolute",
+              flex: "display",
+              position: "relative",
               width: "100%",
-              height: 500,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              zIndex: 10,
+              marginBottom: 700,
             }}
           >
-            <ChevronLeftSVG style={chevronSvgStyle} onClick={onClickToLeft} />
-            <ChevronRightSVG style={chevronSvgStyle} onClick={onClickToRight} />
+            <div
+              style={{
+                position: "absolute",
+                width: "100%",
+                height: 500,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                zIndex: 10,
+              }}
+            >
+              <ChevronLeftSVG style={chevronSvgStyle} onClick={onClickToLeft} />
+              <ChevronRightSVG
+                style={chevronSvgStyle}
+                onClick={onClickToRight}
+              />
+            </div>
+
+            <AppServiceEachBox
+              className={`moving-component ${
+                appIntroIndex == 0 ? "visible" : "hidden"
+              }`}
+            >
+              <AppIntroTextBox>
+                <AppIntroHeader>1. 신체 건강 관리</AppIntroHeader>
+                <AppIntroText>하루 목표 걸음수를 설정하면</AppIntroText>
+                <AppIntroText>달성하는 즉시 칭찬과 격려로</AppIntroText>
+                <AppIntroText>성취감을 느끼며</AppIntroText>
+                <AppIntroText>건강을 관리합니다.</AppIntroText>
+              </AppIntroTextBox>
+              <img
+                style={{ width: "400px" }}
+                src={require("../assets/phoneimg3/1diary_step.png")}
+              />
+            </AppServiceEachBox>
+            <AppServiceEachBox
+              className={`moving-component ${
+                appIntroIndex == 1 ? "visible" : "hidden"
+              }`}
+            >
+              <AppIntroTextBox>
+                <AppIntroHeader>2. 인지 능력 관리</AppIntroHeader>
+                <AppIntroText>덧셈 뺄셈의 간단한 산수 문제의</AppIntroText>
+                <AppIntroText>정답을 맞추는 즉시 칭찬과 격려로</AppIntroText>
+                <AppIntroText>자신감을 얻으며</AppIntroText>
+                <AppIntroText>인지 능력을 관리합니다.</AppIntroText>
+              </AppIntroTextBox>
+              <img
+                style={{ width: "400px" }}
+                src={require("../assets/phoneimg3/2diary_recognition.png")}
+              />
+            </AppServiceEachBox>
+            <AppServiceEachBox
+              className={`moving-component ${
+                appIntroIndex == 2 ? "visible" : "hidden"
+              }`}
+            >
+              <AppIntroTextBox>
+                <AppIntroHeader>3. 정신 건강 관리</AppIntroHeader>
+                <AppIntroText>10개의 감정 이모티콘을 통해</AppIntroText>
+                <AppIntroText>현재의 나의 감정이 어떠한지</AppIntroText>
+                <AppIntroText>표현함으로써</AppIntroText>
+                <AppIntroText>정신 건강을 관리합니다.</AppIntroText>
+              </AppIntroTextBox>
+              <img
+                style={{ width: "400px" }}
+                src={require("../assets/phoneimg3/3diary_mood.png")}
+              />
+            </AppServiceEachBox>
+            <AppServiceEachBox
+              className={`moving-component ${
+                appIntroIndex == 3 ? "visible" : "hidden"
+              }`}
+            >
+              <AppIntroTextBox>
+                <AppIntroHeader>4. 사고 능력 관리</AppIntroHeader>
+                <AppIntroText>일기, 추억, 시 등 하루 한번씩</AppIntroText>
+                <AppIntroText>자유로운 글쓰기 활동으로</AppIntroText>
+                <AppIntroText>생각을 정리하며</AppIntroText>
+                <AppIntroText>사고 능력을 관리합니다.</AppIntroText>
+              </AppIntroTextBox>
+              <img
+                style={{ width: "400px" }}
+                src={require("../assets/phoneimg3/4diary_todaydiary.png")}
+              />
+            </AppServiceEachBox>
           </div>
-          {appIntroIndex == 0 ? (
+
+          {/* {appIntroIndex == 0 ? (
             <AppServiceEachBox>
               <AppIntroTextBox>
                 <AppIntroHeader>1. 신체 건강 관리</AppIntroHeader>
@@ -518,7 +604,7 @@ function Home() {
                 <AppIntroText>건강을 관리합니다.</AppIntroText>
               </AppIntroTextBox>
               <img
-                style={{ width: "45%" }}
+                style={{ width: "400px" }}
                 src={require("../assets/phoneimg3/1diary_step.png")}
               />
             </AppServiceEachBox>
@@ -532,7 +618,7 @@ function Home() {
                 <AppIntroText>인지 능력을 관리합니다.</AppIntroText>
               </AppIntroTextBox>
               <img
-                style={{ width: "45%" }}
+                style={{ width: "400px" }}
                 src={require("../assets/phoneimg3/2diary_recognition.png")}
               />
             </AppServiceEachBox>
@@ -546,7 +632,7 @@ function Home() {
                 <AppIntroText>정신 건강을 관리합니다.</AppIntroText>
               </AppIntroTextBox>
               <img
-                style={{ width: "45%" }}
+                style={{ width: "400px" }}
                 src={require("../assets/phoneimg3/3diary_mood.png")}
               />
             </AppServiceEachBox>
@@ -560,24 +646,24 @@ function Home() {
                 <AppIntroText>사고 능력을 관리합니다.</AppIntroText>
               </AppIntroTextBox>
               <img
-                style={{ width: "45%" }}
+                style={{ width: "400px" }}
                 src={require("../assets/phoneimg3/4diary_todaydiary.png")}
               />
             </AppServiceEachBox>
-          ) : null}
+          ) : null} */}
           <AppIntroEachBox style={{ marginTop: 50 }}>
             <AppIntroTextBox>
               <AppIntroText>다양한 사람들을 알아가고,</AppIntroText>
               <AppIntroText>현재 나에 대해 알릴 수 있어요.</AppIntroText>
             </AppIntroTextBox>
             <img
-              style={{ width: "45%" }}
+              style={{ width: "400px", marginLeft: "50px" }}
               src={require("../assets/phoneimg3/5group.png")}
             />
           </AppIntroEachBox>
           <AppIntroEachBox>
             <img
-              style={{ width: "45%" }}
+              style={{ width: "400px", marginRight: "50px" }}
               src={require("../assets/phoneimg3/6ranking.png")}
             />
             <AppIntroTextBox>
@@ -592,7 +678,7 @@ function Home() {
               <AppIntroText>다양한 행사 상품을 획득해요</AppIntroText>
             </AppIntroTextBox>
             <img
-              style={{ width: "45%" }}
+              style={{ width: "400px", marginLeft: "50px" }}
               src={require("../assets/phoneimg3/7mission.png")}
             />
           </AppIntroEachBox>

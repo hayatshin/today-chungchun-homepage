@@ -55,6 +55,21 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+.moving-component {
+}
+
+.moving-component.visible {
+	opacity: 1;
+	transition: opacity 1s linear;
+}
+
+.moving-component.hidden {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 3s linear, opacity 1s linear;
+}
+
 `;
 
 const root = ReactDOM.createRoot(
