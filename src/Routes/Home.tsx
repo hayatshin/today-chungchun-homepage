@@ -434,7 +434,9 @@ function Home() {
         {/* 활용 사례 */}
         {/* 서비스 안내 */}
         <SecondBox>
-          <TabHeader>오늘도청춘 이란?</TabHeader>
+          <TabHeader style={{ color: `${colors.mainColor}` }}>
+            오늘도청춘 이란?
+          </TabHeader>
           <SecondMediaBox>
             <SecondTextGroupBox>
               <TextMediaBox>
@@ -593,64 +595,6 @@ function Home() {
               />
             </AppServiceEachBox>
           </div>
-
-          {/* {appIntroIndex == 0 ? (
-            <AppServiceEachBox>
-              <AppIntroTextBox>
-                <AppIntroHeader>1. 신체 건강 관리</AppIntroHeader>
-                <AppIntroText>하루 목표 걸음수를 설정하면</AppIntroText>
-                <AppIntroText>달성하는 즉시 칭찬과 격려로</AppIntroText>
-                <AppIntroText>성취감을 느끼며</AppIntroText>
-                <AppIntroText>건강을 관리합니다.</AppIntroText>
-              </AppIntroTextBox>
-              <img
-                style={{ width: "400px" }}
-                src={require("../assets/phoneimg3/1diary_step.png")}
-              />
-            </AppServiceEachBox>
-          ) : appIntroIndex == 1 ? (
-            <AppServiceEachBox>
-              <AppIntroTextBox>
-                <AppIntroHeader>2. 인지 능력 관리</AppIntroHeader>
-                <AppIntroText>덧셈 뺄셈의 간단한 산수 문제의</AppIntroText>
-                <AppIntroText>정답을 맞추는 즉시 칭찬과 격려로</AppIntroText>
-                <AppIntroText>자신감을 얻으며</AppIntroText>
-                <AppIntroText>인지 능력을 관리합니다.</AppIntroText>
-              </AppIntroTextBox>
-              <img
-                style={{ width: "400px" }}
-                src={require("../assets/phoneimg3/2diary_recognition.png")}
-              />
-            </AppServiceEachBox>
-          ) : appIntroIndex == 2 ? (
-            <AppServiceEachBox>
-              <AppIntroTextBox>
-                <AppIntroHeader>3. 정신 건강 관리</AppIntroHeader>
-                <AppIntroText>10개의 감정 이모티콘을 통해</AppIntroText>
-                <AppIntroText>현재의 나의 감정이 어떠한지</AppIntroText>
-                <AppIntroText>표현함으로써</AppIntroText>
-                <AppIntroText>정신 건강을 관리합니다.</AppIntroText>
-              </AppIntroTextBox>
-              <img
-                style={{ width: "400px" }}
-                src={require("../assets/phoneimg3/3diary_mood.png")}
-              />
-            </AppServiceEachBox>
-          ) : appIntroIndex == 3 ? (
-            <AppServiceEachBox>
-              <AppIntroTextBox>
-                <AppIntroHeader>4. 사고 능력 관리</AppIntroHeader>
-                <AppIntroText>일기, 추억, 시 등 하루 한번씩</AppIntroText>
-                <AppIntroText>자유로운 글쓰기 활동으로</AppIntroText>
-                <AppIntroText>생각을 정리하며</AppIntroText>
-                <AppIntroText>사고 능력을 관리합니다.</AppIntroText>
-              </AppIntroTextBox>
-              <img
-                style={{ width: "400px" }}
-                src={require("../assets/phoneimg3/4diary_todaydiary.png")}
-              />
-            </AppServiceEachBox>
-          ) : null} */}
           <AppIntroEachBox style={{ marginTop: 50 }}>
             <AppIntroTextBox>
               <AppIntroText>다양한 사람들을 알아가고,</AppIntroText>
@@ -681,6 +625,36 @@ function Home() {
               style={{ width: "400px", marginLeft: "50px" }}
               src={require("../assets/phoneimg3/7mission.png")}
             />
+          </AppIntroEachBox>
+          <AppIntroEachBox
+            style={{
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <img
+              style={{ width: "700px" }}
+              src={require("../assets/phoneimg3/8adminpage.png")}
+            />
+            <AppIntroTextBox>
+              <AppIntroText style={{ textAlign: "center" }}>
+                지역 주민간 대인 관계가 활성화 되고,
+              </AppIntroText>
+              <AppIntroText style={{ textAlign: "center" }}>
+                다양한 지역 행사를 쉽게 주관할 수 있어요.
+              </AppIntroText>
+              <div style={{ height: 30 }}></div>
+              <AppIntroText style={{ textAlign: "center" }}>
+                자동 축적되는 활동 데이터와
+              </AppIntroText>
+              <AppIntroText style={{ textAlign: "center" }}>
+                한 눈에 보는 감정 변화 그래프로
+              </AppIntroText>
+              <AppIntroText style={{ textAlign: "center" }}>
+                실시간으로 지역민을 케어할 수 있어요.
+              </AppIntroText>
+            </AppIntroTextBox>
           </AppIntroEachBox>
         </ThirdBox>
         {/* 다운로드 */}
