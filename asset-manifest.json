@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1b97f976.css",
-    "main.js": "/static/js/main.bbee0fe8.js",
+    "main.js": "/static/js/main.b0c66c9d.js",
     "static/media/7mission.png": "/static/media/7mission.e2731b45793e1fcdbd83.png",
     "static/media/5group.png": "/static/media/5group.19115fa3ba7f4554a3dc.png",
     "static/media/main_phone_hand.png": "/static/media/main_phone_hand.664c03b722cfd4d83406.png",
@@ -21,10 +21,10 @@
     "static/media/chevron-right-light.svg": "/static/media/chevron-right-light.53eb69cf04e9b0415d5c65ed9eab1367.svg",
     "static/media/chevron-left-light.svg": "/static/media/chevron-left-light.b80e04b8b3cff9754c5ed476d0c6070f.svg",
     "main.1b97f976.css.map": "/static/css/main.1b97f976.css.map",
-    "main.bbee0fe8.js.map": "/static/js/main.bbee0fe8.js.map"
+    "main.b0c66c9d.js.map": "/static/js/main.b0c66c9d.js.map"
   },
   "entrypoints": [
     "static/css/main.1b97f976.css",
-    "static/js/main.bbee0fe8.js"
+    "static/js/main.b0c66c9d.js"
   ]
 }
