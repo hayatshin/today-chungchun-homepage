@@ -24,7 +24,7 @@ function Footer() {
   return (
     <FooterWrapper>
       <FooterText style={{ fontWeight: 400, fontSize: 20, marginBottom: 20 }}>
-        오늘도청춘
+        (주)시니어소프트
       </FooterText>
       <FooterText>대표: 신혜정</FooterText>
       <FooterText>
